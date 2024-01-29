@@ -1,0 +1,286 @@
+{
+    "files": [
+        {
+            "file": ".md",
+            "name": "Markdown",
+            "color": "#3B1300"
+        },
+        {
+            "file": ".html",
+            "name": "HTML",
+            "color": "#FFA500",
+            "lang": true
+        },
+        {
+            "file": ".cpp",
+            "name": "C++",
+            "color": "#00599C",
+            "lang": true
+        },
+        {
+            "file": ".c",
+            "name": "C",
+            "color": "#808080",
+            "lang": true
+        },
+        {
+            "file": ".json",
+            "name": "JSON",
+            "color": "#008000"
+        },
+        {
+            "file": ".ts",
+            "name": "TypeScript",
+            "color": "#007ACC",
+            "lang": true
+        },
+        {
+            "file": ".d.ts",
+            "name": "Typescript Module",
+            "color": "#007ACC",
+            "groupWith": ".ts"
+        },
+        {
+            "file": ".d.ts.map",
+            "name": "Typescript Module Map",
+            "color": "#007ACC",
+            "groupWith": ".ts"
+        },
+        {
+            "file": ".gitignore",
+            "name": "Git Ignore",
+            "color": "#f14f2f"
+        },
+        {
+            "file": ".js",
+            "name": "JavaScript",
+            "color": "#FFD700",
+            "lang": true
+        },
+        {
+            "file": ".js.map",
+            "name": "JavaScript Map",
+            "color": "#FFD700",
+            "groupWith": ".js"
+        },
+        {
+            "file": ".mjs",
+            "name": "EMCAScript",
+            "color": "#FFD700",
+            "groupWith": ".js"
+        },
+        {
+            "file": ".cjs",
+            "name": "CommonJS",
+            "color": "#FFD700",
+            "groupWith": ".js"
+        },
+        {
+            "file": ".sample",
+            "name": "Sample",
+            "color": "#00EEFF"
+        },
+        {
+            "file": ".idx",
+            "name": "Index",
+            "color": "#FF0000"
+        },
+        {
+            "file": ".pack",
+            "name": "Git Packfile",
+            "color": "#f14f2f"
+        },
+        {
+            "file": ".rev",
+            "name": "Recovery",
+            "color": "#00FF55"
+        },
+        {
+            "file": ".ninja_deps",
+            "name": "Ninja Dependency",
+            "color": "#800000",
+            "groupWith": ".ninja"
+        },
+        {
+            "file": ".ninja_log",
+            "name": "Ninja Log",
+            "color": "#800000",
+            "groupWith": ".ninja"
+        },
+        {
+            "file": ".ninja",
+            "name": "Ninja",
+            "color": "#800000"
+        },
+        {
+            "file": ".txt",
+            "name": "Text",
+            "color": "#FFFFFF"
+        },
+        {
+            "file": ".cmake",
+            "name": "CMake",
+            "color": "#3366CC",
+            "lang": true
+        },
+        {
+            "file": ".bin",
+            "name": "Binary",
+            "color": "#11CA00"
+        },
+        {
+            "file": ".h",
+            "name": "Header",
+            "color": "#808080",
+            "groupWith": ".c",
+            "lang": true
+        },
+        {
+            "file": ".hpp",
+            "name": "C++ Header",
+            "color": "#00599C",
+            "groupWith": ".cpp",
+            "lang": true
+        },
+        {
+            "file": ".cpp.obj",
+            "name": "C++ Object",
+            "color": "#00599C",
+            "groupWith": ".cpp"
+        },
+        {
+            "file": ".exe",
+            "name": "Executable",
+            "color": "#BB0000"
+        },
+        {
+            "file": ".check_cache",
+            "name": "CMake Check Cache",
+            "color": "#3366CC",
+            "groupWith": ".cmake"
+        },
+        {
+            "file": ".yaml",
+            "name": "YAML",
+            "color": "#800080"
+        },
+        {
+            "file": ".glsl",
+            "name": "GLSL",
+            "color": "#FFA500"
+        },
+        {
+            "file": ".css",
+            "name": "CSS",
+            "color": "#264de4",
+            "lang": true
+        },
+        {
+            "file": ".ps1",
+            "name": "Powershell Script",
+            "color": "#012456"
+        },
+        {
+            "file": ".png",
+            "name": "PNG",
+            "color": "#00FFFF"
+        },
+        {
+            "file": ".jpg",
+            "name": "JPG",
+            "color": "#00FFFF"
+        },
+        {
+            "file": ".java",
+            "name": "Java",
+            "color": "#f89820",
+            "lang": true
+        },
+        {
+            "file": ".jar",
+            "name": "Java Archive",
+            "color": "#f89820",
+            "groupWith": ".java"
+        },
+        {
+            "file": ".cs",
+            "name": "C#",
+            "color": "#280068",
+            "lang": true
+        },
+        {
+            "file": ".dll",
+            "name": "Dynamic Link Library",
+            "color": "#ff5e00"
+        },
+        {
+            "file": ".scss",
+            "name": "SASS",
+            "color": "#CD6799",
+            "lang": true,
+            "groupWith": ".css"
+        },
+        {
+            "file": ".class",
+            "name": "Java Class",
+            "color": "#f89820",
+            "groupWith": ".java"
+        },
+        {
+            "file": ".vue",
+            "name": "Vue",
+            "color": "#41B883",
+            "lang": true
+        },
+        {
+            "file": ".pdb",
+            "name": "Program Database",
+            "color": "#10c9b7"
+        },
+        {
+            "file": ".cache",
+            "name": "Cache",
+            "color": "#42f545"
+        },
+        {
+            "file": ".editorconfig",
+            "name": "Editor Config",
+            "color": "#FFFFFF"
+        },
+        {
+            "file": ".ejs",
+            "name": "Embedded Javascript",
+            "color": "#C0CA33",
+            "lang": true
+        },
+        {
+            "file": ".csproj",
+            "name": "C# Project",
+            "color": "#280068",
+            "groupWith": ".cs"
+        },
+        {
+            "file": ".props",
+            "name": "C# Props",
+            "color": "#280068",
+            "groupWith": ".cs"
+        },
+        {
+            "file": ".py",
+            "name": "Python",
+            "color": "#4B8BBE",
+            "lang": true
+        },
+        {
+            "file": ".pyc",
+            "name": "Compiled Python Binaries",
+            "color": "#4B8BBE",
+            "groupWith": ".py"
+        },
+        {
+            "file": ".ico",
+            "name": "Icon",
+            "color": "#FFFFFF"
+        }
+    ]
+}
