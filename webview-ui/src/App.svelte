@@ -29,7 +29,7 @@
             <div class="tooltip-text">File will show the amount of files with the extension name, size will show the bytes of data located within these files.</div>
         </div>
     </div>
-	<!-- <vscode-button on:click={handleHowdyClick}>Howdy!</vscode-button> -->
+	<vscode-button>Update</vscode-button>
 </main>
 
 <style>
