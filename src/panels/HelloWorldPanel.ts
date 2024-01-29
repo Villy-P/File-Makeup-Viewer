@@ -69,6 +69,10 @@ export class HelloWorldPanel {
     }
   }
 
+  public post(content: {title: string, msg: string}) {
+	this._panel.webview.postMessage(content);
+  }
+
   /**
    * Cleans up and disposes of webview resources when the webview panel is closed.
    */

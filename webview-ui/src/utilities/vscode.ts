@@ -36,6 +36,12 @@ class VSCodeAPIWrapper {
     }
   }
 
+  public getData(message: string) {
+    if (this.vsCodeApi) {
+      this.vsCodeApi
+    }
+  }
+
   /**
    * Get the persistent state stored for this webview.
    *
