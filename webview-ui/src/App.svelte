@@ -3,6 +3,8 @@
 	import { vscode } from "./utilities/vscode";
     import { onMount } from "svelte";
 
+	import { Chart } from 'chart.js/auto'
+
 	import './styles/style.css'
 
 	provideVSCodeDesignSystem().register(vsCodeButton());
@@ -16,6 +18,23 @@
 			if (e.data.title === "cwd")
 				cwd = e.data.msg;
 		});
+
+		const ctx: any = document.getElementById('myChart');
+
+		new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: [
+                    "data_labels"
+                ],
+                datasets: [{
+                    label: 'Files with this extension',
+                    data: ["data_values"],
+                    backgroundColor: ["data_colors"],
+                    hoverOffset: 4
+                }]
+            }
+        });
 	});
 </script>
 
@@ -28,6 +47,9 @@
             <div>?</div>
             <div class="tooltip-text">File will show the amount of files with the extension name, size will show the bytes of data located within these files.</div>
         </div>
+    </div>
+	<div style="width: 700px; height: 700px;">
+        <canvas id="myChart" role="img"></canvas>
     </div>
 	<vscode-button>Update</vscode-button>
 </main>
