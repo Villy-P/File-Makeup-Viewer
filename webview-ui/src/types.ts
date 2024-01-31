@@ -11,3 +11,9 @@ export interface FileType {
 	lang?: boolean;
 	groupWith?: string;
 }
+
+export interface Directory {
+    type: string;
+    name: string;
+    children?: Directory[];
+}

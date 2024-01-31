@@ -2,18 +2,22 @@
 	import { provideVSCodeDesignSystem, vsCodeButton } from "@vscode/webview-ui-toolkit";
     import { onMount } from "svelte";
 
-    import type { FileType, OptionCheckBox } from "./types";
+    import type { FileType, OptionCheckBox, Directory } from "./types";
 
 	import { Chart } from 'chart.js/auto'
 
 	import './styles/style.css'
 
-	provideVSCodeDesignSystem().register(vsCodeButton());
-
 	let cwd = "";
+	let directory: Directory;
 	let fileJSON: FileType[];
-
+	let fileData: Map<string, number> = new Map<string, number>();
+	
+	let ignore: string[] = [];
+	let chart: Chart<"pie", string[], string> | undefined;
+	
 	onMount(() => {
+		provideVSCodeDesignSystem().register(vsCodeButton());
 		window.addEventListener("message", (e) => {
 			const msg = e.data;
 
@@ -21,25 +25,58 @@
 				cwd = e.data.msg;
 			if (e.data.title === "file")
 				fileJSON = JSON.parse(e.data.msg).files;
+			if (e.data.title === "dir") {
+				directory = JSON.parse(e.data.msg);
+				update();
+			}
 		});
 
 		const ctx: any = document.getElementById('myChart');
 
-		new Chart(ctx, {
+		chart = new Chart(ctx, {
             type: 'pie',
             data: {
-                labels: [
-                    "data_labels"
-                ],
+                labels: [],
                 datasets: [{
                     label: 'Files with this extension',
-                    data: ["data_values"],
-                    backgroundColor: ["data_colors"],
+                    data: [],
+                    backgroundColor: [],
                     hoverOffset: 4
                 }]
             }
         });
 	});
+
+	function readFileAndChildren(files: Directory[]) {
+		console.log(files);
+		for (const dir of files) {
+			console.log("Children of " + dir.name + ": " + dir.children);
+			if (dir.children && dir.children.length > 0 && !options[0].checked && ignore.includes(dir.name))
+				readFileAndChildren(dir.children);
+			else {
+				const ext = dir.name.split(".");
+				const extension = ext[ext.length - 1];
+				fileData.set(extension, (fileData.get(extension) || 0) + 1);
+			}
+		}
+	}
+
+	function update() {
+		readFileAndChildren(directory.children);
+		const extensionsSort = new Map([...fileData.entries()].sort((a, b) => b[1] - a[1]));
+		
+		chart.data = {
+			labels: Array.from(extensionsSort.keys()),
+			datasets: [{
+				label: "Files with this extension",
+				data: Array.from(extensionsSort.values()).map(e => e.toString()),
+				backgroundColor: Array.from(extensionsSort.keys()).map(v => fileJSON.find(f => f.name === v)?.color || v),
+				hoverOffset: 4
+			}]
+		}
+		chart.update();
+		console.log(chart.data);
+	}
 
 	const options: OptionCheckBox[] = [
 		{
