@@ -1,16 +1,17 @@
 <script lang="ts">
 	import { provideVSCodeDesignSystem, vsCodeButton } from "@vscode/webview-ui-toolkit";
-	import { vscode } from "./utilities/vscode";
     import { onMount } from "svelte";
+
+    import type { FileType, OptionCheckBox } from "./types";
 
 	import { Chart } from 'chart.js/auto'
 
 	import './styles/style.css'
-    import type { OptionCheckBox } from "./types";
 
 	provideVSCodeDesignSystem().register(vsCodeButton());
 
 	let cwd = "";
+	let fileJSON: FileType[];
 
 	onMount(() => {
 		window.addEventListener("message", (e) => {
@@ -18,6 +19,8 @@
 
 			if (e.data.title === "cwd")
 				cwd = e.data.msg;
+			if (e.data.title === "file")
+				fileJSON = JSON.parse(e.data.msg).files;
 		});
 
 		const ctx: any = document.getElementById('myChart');

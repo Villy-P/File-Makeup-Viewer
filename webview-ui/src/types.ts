@@ -3,3 +3,11 @@ export interface OptionCheckBox {
     label: string,
     tooltip: string
 }
+
+export interface FileType {
+	file: string;
+	name: string;
+	color: string;
+	lang?: boolean;
+	groupWith?: string;
+}
