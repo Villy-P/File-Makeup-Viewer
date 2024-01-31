@@ -6,6 +6,7 @@
 	import { Chart } from 'chart.js/auto'
 
 	import './styles/style.css'
+    import type { OptionCheckBox } from "./types";
 
 	provideVSCodeDesignSystem().register(vsCodeButton());
 
@@ -36,6 +37,21 @@
             }
         });
 	});
+
+	const options: OptionCheckBox[] = [
+		{
+			label: "Show Hidden Directories",
+			tooltip: "When unchecked, the chart will not include files located in hidden directories (those that start with '.')"
+		},
+		{
+			label: "Group Related Files",
+			tooltip: "When checked, the chart will group similar files (such as .hpp files with .cpp files and .cjs/.mjs files with .js files)"
+		},
+		{
+			label: "Remove non-language files",
+			tooltip: "When checked, the chart will not include files that are not direct language files (like .js, .cpp, .java, etc)"
+		}
+	];
 </script>
 
 <main>
@@ -51,7 +67,28 @@
 	<div style="width: 700px; height: 700px;">
         <canvas id="myChart" role="img"></canvas>
     </div>
-	<vscode-button>Update</vscode-button>
+	<div style="display: flex; justify-content: center; color: gray; flex-direction: column;">
+		{#each options as option}
+		<div style="display: flex; align-items: center;">
+			<input type="checkbox" id="show-hidden" bind:checked={option.checked}/>
+			<label for="show-hidden">{ option.label }</label>
+			<div class="question tooltip-container">
+				<div>?</div>
+				<div class="tooltip-text">{ option.tooltip }</div>
+			</div>
+		</div>
+		{/each}
+		<br>
+		<div style="display: flex; align-items: center;">
+			<h2>Ignore Folders</h2>
+			<div class="question tooltip-container">
+				<div>?</div>
+				<div class="tooltip-text">Each line will ignore a folder with that name. Do not include any slashes -- just use the name itself (like src or lib). Press Update to see changes</div>
+			</div>
+		</div>
+		<textarea id="textarea"></textarea><br>
+	</div>
+	<vscode-button>Update</vscode-button><br><br>
 </main>
 
 <style>
