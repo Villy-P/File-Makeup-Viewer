@@ -12,7 +12,7 @@
 	let cwd = "";
 	let directory: Directory;
 	let fileJSON: FileType[];
-	let fileData: Map<string, number> = new Map<string, number>();
+	let fileData: Map<FileType, number> = new Map<FileType, number>();
 	
 	let ignore: string[] = [];
 	let chart: Chart<"pie", string[], string> | undefined;
@@ -29,7 +29,6 @@
 				fileJSON = JSON.parse(e.data.msg).files;
 			if (e.data.title === "dir") {
 				directory = JSON.parse(e.data.msg);
-				console.log(directory)
 				update();
 			}
 		});
@@ -54,11 +53,20 @@
 		for (const dir of files) {
 			if (dir.name.startsWith(".") && !options[0].checked)
 				continue;
-			if (dir.children && !ignore.includes(dir.name)) {
+			if (ignore.includes(dir.name))
+				continue;
+			if (dir.children) {
 				readFileAndChildren(dir.children);
 			} else {
 				const ext = dir.name.split(".");
-				const extension = ext[ext.length - 1];
+				const extName = ext[ext.length - 1];
+				let extension = fileJSON.find((x) => x.file === '.' + extName);
+				if (extension && extension.groupWith && options[1].checked)
+					extension = fileJSON.find((x) => x.file === extension.groupWith);
+				if (!extension) {
+					fileJSON.push({file: '.' + extName, name: extName, color: "#000000"});
+					extension = fileJSON[fileJSON.length - 1];
+				}
 				fileData.set(extension, (fileData.get(extension) || 0) + 1);
 			}
 		}
@@ -66,16 +74,16 @@
 
 	function update() {
 		ignore = textarea.value.split("\n");
+		fileData.clear();
 		
 		readFileAndChildren(directory.children);
 		const extensionsSort = new Map([...fileData.entries()].sort((a, b) => b[1] - a[1]));
 
 		chart.data = {
-			labels: Array.from(extensionsSort.keys()),
+			labels: Array.from(extensionsSort.keys()).map((x) => x.name),
 			datasets: [{
 				label: "Files with this extension",
 				data: Array.from(extensionsSort.values()).map(e => e.toString()),
-				backgroundColor: Array.from(extensionsSort.keys()).map(v => fileJSON.find(f => f.name === v)?.color || v),
 				hoverOffset: 4
 			}]
 		}
@@ -117,7 +125,7 @@
 	<div style="display: flex; justify-content: center; color: gray; flex-direction: column;">
 		{#each options as option}
 		<div style="display: flex; align-items: center;">
-			<input type="checkbox" id="show-hidden" bind:checked={option.checked}/>
+			<input type="checkbox" id="show-hidden" bind:checked={option.checked} on:change={() => update()}/>
 			<label for="show-hidden">{ option.label }</label>
 			<div class="question tooltip-container">
 				<div>?</div>
