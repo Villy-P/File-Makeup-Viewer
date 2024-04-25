@@ -94,15 +94,14 @@
 		const extensionsSort = new Map([...fileData.entries()].sort((a, b) => b[1] - a[1]));
 
 		chart.data = {
-			labels: Array.from(extensionsSort.keys()),
+			labels: Array.from(extensionsSort.keys()).map(e => e + " File"),
 			datasets: [{
 				label: "Files with this extension",
-				data: Array.from(extensionsSort.values()).map(e => e.toString() + " File"),
+				data: Array.from(extensionsSort.values()).map(e => e.toString()),
 				hoverOffset: 4
 			}]
 		}
 		chart.update();
-		console.log(fileJSON);
 	}
 
 	const options: OptionCheckBox[] = [
