@@ -74,7 +74,8 @@
 				const extName = ext[ext.length - 1];
 				let fileExtension = dir.name.split('.').slice(1).join('.');
 				let extension = getFileExtension(fileExtension);
-				console.log(extension, fileExtension, extName, ext);
+				if (!extension.lang && options[2].checked)
+					continue;
 				if (extension && extension.groupWith && options[1].checked)
 					extension = fileJSON.find((x) => x.file === extension.groupWith);
 				if (!extension) {
@@ -109,13 +110,11 @@
 			label: "Show Hidden Directories",
 			tooltip: "When unchecked, the chart will not include files located in hidden directories (those that start with '.')",
 			checked: false
-		},
-		{
+		}, {
 			label: "Group Related Files",
 			tooltip: "When checked, the chart will group similar files (such as .hpp files with .cpp files and .cjs/.mjs files with .js files)",
 			checked: false
-		},
-		{
+		}, {
 			label: "Remove non-language files",
 			tooltip: "When checked, the chart will not include files that are not direct language files (like .js, .cpp, .java, etc)",
 			checked: false
