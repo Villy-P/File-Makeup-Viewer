@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { TextArea, provideVSCodeDesignSystem, vsCodeButton } from "@vscode/webview-ui-toolkit";
+	import { provideVSCodeDesignSystem, vsCodeButton } from "@vscode/webview-ui-toolkit";
     import { onMount } from "svelte";
 
     import type { FileType, OptionCheckBox, Directory } from "./types";
@@ -7,8 +7,6 @@
 	import { Chart } from 'chart.js/auto'
 
 	import './styles/style.css'
-    import { dir } from "console";
-    import { extname } from "path";
 
 	let cwd = "";
 	let directory: Directory;
@@ -22,8 +20,6 @@
 	onMount(() => {
 		provideVSCodeDesignSystem().register(vsCodeButton());
 		window.addEventListener("message", (e) => {
-			const msg = e.data;
-
 			if (e.data.title === "cwd")
 				cwd = e.data.msg;
 			if (e.data.title === "file")
