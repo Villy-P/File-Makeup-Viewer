@@ -8,11 +8,12 @@
 
 	import './styles/style.css'
     import { dir } from "console";
+    import { extname } from "path";
 
 	let cwd = "";
 	let directory: Directory;
 	let fileJSON: FileType[];
-	let fileData: Map<FileType, number> = new Map<FileType, number>();
+	let fileData: Map<string, number> = new Map<string, number>();
 	
 	let ignore: string[] = [];
 	let chart: Chart<"pie", string[], string> | undefined;
@@ -49,9 +50,20 @@
         });
 	});
 
+	function getFileExtension(ext: string): FileType | null {
+		let e = ext;
+		while (e) {
+			const extension = fileJSON.find(f => f.file === ('.' + e));
+			if (extension)
+				return extension;
+			e = e.split('.').slice(1).join('.');
+		}
+		return null;
+	}
+
 	function readFileAndChildren(files: Directory[]) {
 		for (const dir of files) {
-			if (dir.name.startsWith(".") && !options[0].checked)
+			if (dir.name.startsWith(".") && !options[0].checked && dir.children)
 				continue;
 			if (ignore.includes(dir.name))
 				continue;
@@ -60,14 +72,16 @@
 			} else {
 				const ext = dir.name.split(".");
 				const extName = ext[ext.length - 1];
-				let extension = fileJSON.find((x) => x.file === '.' + extName);
+				let fileExtension = dir.name.split('.').slice(1).join('.');
+				let extension = getFileExtension(fileExtension);
+				console.log(extension, fileExtension, extName, ext);
 				if (extension && extension.groupWith && options[1].checked)
 					extension = fileJSON.find((x) => x.file === extension.groupWith);
 				if (!extension) {
-					fileJSON.push({file: '.' + extName, name: extName, color: "#000000"});
+					fileJSON.push({file: '.' + extName, name: '.' + extName, color: "#000000"});
 					extension = fileJSON[fileJSON.length - 1];
 				}
-				fileData.set(extension, (fileData.get(extension) || 0) + 1);
+				fileData.set(extension.name, (fileData.get(extension.name) || 0) + 1);
 			}
 		}
 	}
@@ -80,7 +94,7 @@
 		const extensionsSort = new Map([...fileData.entries()].sort((a, b) => b[1] - a[1]));
 
 		chart.data = {
-			labels: Array.from(extensionsSort.keys()).map((x) => x.name),
+			labels: Array.from(extensionsSort.keys()),
 			datasets: [{
 				label: "Files with this extension",
 				data: Array.from(extensionsSort.values()).map(e => e.toString()),
@@ -88,6 +102,7 @@
 			}]
 		}
 		chart.update();
+		console.log(fileJSON);
 	}
 
 	const options: OptionCheckBox[] = [
