@@ -74,7 +74,7 @@
 				const extName = ext[ext.length - 1];
 				let fileExtension = dir.name.split('.').slice(1).join('.');
 				let extension = getFileExtension(fileExtension);
-				if (!extension.lang && options[2].checked)
+				if (extension && !extension.lang && options[2].checked)
 					continue;
 				if (extension && extension.groupWith && options[1].checked)
 					extension = fileJSON.find((x) => x.file === extension.groupWith);
@@ -99,6 +99,7 @@
 			datasets: [{
 				label: "Files with this extension",
 				data: Array.from(extensionsSort.values()).map(e => e.toString()),
+				backgroundColor: Array.from(extensionsSort.keys()).map(e => JSON.parse(e).color),
 				hoverOffset: 4
 			}]
 		}
