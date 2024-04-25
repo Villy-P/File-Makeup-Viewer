@@ -97,7 +97,7 @@
 			labels: Array.from(extensionsSort.keys()),
 			datasets: [{
 				label: "Files with this extension",
-				data: Array.from(extensionsSort.values()).map(e => e.toString()),
+				data: Array.from(extensionsSort.values()).map(e => e.toString() + " File"),
 				hoverOffset: 4
 			}]
 		}
