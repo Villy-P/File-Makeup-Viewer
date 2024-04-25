@@ -82,7 +82,7 @@
 					fileJSON.push({file: '.' + extName, name: '.' + extName, color: "#000000"});
 					extension = fileJSON[fileJSON.length - 1];
 				}
-				fileData.set(extension.name, (fileData.get(extension.name) || 0) + 1);
+				fileData.set(JSON.stringify(extension), (fileData.get(JSON.stringify(extension)) || 0) + 1);
 			}
 		}
 	}
@@ -95,7 +95,7 @@
 		const extensionsSort = new Map([...fileData.entries()].sort((a, b) => b[1] - a[1]));
 
 		chart.data = {
-			labels: Array.from(extensionsSort.keys()).map(e => e + " File"),
+			labels: Array.from(extensionsSort.keys()).map(e => JSON.parse(e).name + " File"),
 			datasets: [{
 				label: "Files with this extension",
 				data: Array.from(extensionsSort.values()).map(e => e.toString()),
