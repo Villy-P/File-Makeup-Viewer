@@ -16,6 +16,7 @@
 	let ignore: string[] = [];
 	let chart: Chart<"pie", string[], string> | undefined;
 	let textarea: HTMLTextAreaElement;
+	let isFile: boolean;
 	
 	onMount(() => {
 		provideVSCodeDesignSystem().register(vsCodeButton());
@@ -122,8 +123,8 @@
 <main>
 	<h1>File Makeup for {cwd}</h1>
 	<div style="display: flex; align-items: center;">
-        <button class="type active type-left">File</button>
-        <button class="type type-right">Size</button>
+        <button class="type type-left" on:click={() => isFile = true} class:active={isFile}>File</button>
+        <button class="type type-right" on:click={() => isFile = false} class:active={!isFile}>Size</button>
         <div class="question tooltip-container">
             <div>?</div>
             <div class="tooltip-text">File will show the amount of files with the extension name, size will show the bytes of data located within these files.</div>
