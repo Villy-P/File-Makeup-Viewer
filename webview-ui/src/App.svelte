@@ -5,7 +5,6 @@
     import type { FileType, OptionCheckBox, Directory } from "./types";
 
 	import Chart from 'chart.js/auto'
-	import { getRelativePosition } from 'chart.js/helpers';
 
 	import './styles/style.css'
 
