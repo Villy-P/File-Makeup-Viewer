@@ -13,7 +13,9 @@ export interface FileType {
 }
 
 export interface Directory {
-    type: string;
+    path: string;
     name: string;
+    size: number;
+    type: "directory" | "file";
     children?: Directory[];
 }

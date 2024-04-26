@@ -14,7 +14,9 @@ export function activate(context: ExtensionContext) {
 
 		HelloWorldPanel.currentPanel?.post({title: "cwd",  msg: cwd});
 		HelloWorldPanel.currentPanel?.post({title: "file", msg: fs.readFileSync(FILE_JSON.fsPath, 'utf8')});
-		HelloWorldPanel.currentPanel?.post({title: "dir",  msg: JSON.stringify(dirTree(cwd))});
+		HelloWorldPanel.currentPanel?.post({title: "dir",  msg: JSON.stringify(dirTree(cwd, {attributes: [
+			"size", "type"
+		]}))});
     });
 
 	context.subscriptions.push(showHelloWorldCommand);

@@ -28,6 +28,7 @@
 			if (e.data.title === "file")
 				fileJSON = JSON.parse(e.data.msg).files;
 			if (e.data.title === "dir") {
+				console.log(JSON.parse(e.data.msg));
 				directory = JSON.parse(e.data.msg);
 				update();
 			}
@@ -67,11 +68,11 @@
 	// Recursive function that reads the current directory and its children to populate the file data
 	function readFileAndChildren(files: Directory[]) {
 		for (const dir of files) {
-			if (dir.name.startsWith(".") && !options[0].checked && dir.children)
+			if (dir.name.startsWith(".") && !options[0].checked && dir.type == 'directory')
 				continue;
 			if (ignore.includes(dir.name))
 				continue;
-			if (dir.children) {
+			if (dir.type == 'directory') {
 				readFileAndChildren(dir.children);
 			} else {
 				const ext = dir.name.split(".");
