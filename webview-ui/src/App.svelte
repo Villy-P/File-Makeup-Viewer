@@ -4,7 +4,8 @@
 
     import type { FileType, OptionCheckBox, Directory } from "./types";
 
-	import { Chart } from 'chart.js/auto'
+	import Chart from 'chart.js/auto'
+	import { getRelativePosition } from 'chart.js/helpers';
 
 	import './styles/style.css'
 
@@ -15,7 +16,7 @@
 	                                            // and the value is the amount of files or size of the files. 
 	
 	let ignore: string[] = [];                  // List of items to ignore, found in the text box within the UI      
-	let chart: Chart<"pie", string[], string>;  // The chart of items that is visualized.
+	let chart;                                  // The chart of items that is visualized.
 	let textarea: HTMLTextAreaElement;          // The UI Element of the text box for ignore folders
 	let isFile: boolean = true;                 // Whether or not the graph shows number of files with extension or size of files
 	
@@ -47,7 +48,15 @@
                     backgroundColor: [],
                     hoverOffset: 4
                 }]
-            }
+            },
+			options: {
+				onClick: (event, elements, chart) => {
+					if (!elements)
+						return;
+					const i = elements[0].index;
+					console.log(chart.data.labels[i] + ': ' + chart.data.datasets[0].data[i]);
+				}
+			}
         });
 	});
 
