@@ -17,7 +17,7 @@
 	let ignore: string[] = [];                  // List of items to ignore, found in the text box within the UI      
 	let chart: Chart<"pie", string[], string>;  // The chart of items that is visualized.
 	let textarea: HTMLTextAreaElement;          // The UI Element of the text box for ignore folders
-	let isFile: boolean;                        // Whether or not the graph shows number of files with extension or size of files
+	let isFile: boolean = true;                 // Whether or not the graph shows number of files with extension or size of files
 	
 	onMount(() => {
 		provideVSCodeDesignSystem().register(vsCodeButton());
@@ -77,7 +77,7 @@
 			} else {
 				const ext = dir.name.split(".");
 				const extName = ext[ext.length - 1];
-				let fileExtension = dir.name.split('.').slice(1).join('.');
+				const fileExtension = dir.name.split('.').slice(1).join('.');
 				let extension = getFileExtension(fileExtension);
 				if (extension && !extension.lang && options[2].checked)
 					continue;
@@ -87,7 +87,8 @@
 					fileJSON.push({file: '.' + extName, name: '.' + extName, color: "#000000"});
 					extension = fileJSON[fileJSON.length - 1];
 				}
-				fileData.set(JSON.stringify(extension), (fileData.get(JSON.stringify(extension)) || 0) + 1);
+				const data = isFile ? 1 : dir.size;
+				fileData.set(JSON.stringify(extension), (fileData.get(JSON.stringify(extension)) || 0) + data);
 			}
 		}
 	}
@@ -132,8 +133,8 @@
 <main>
 	<h1>File Makeup for {cwd}</h1>
 	<div style="display: flex; align-items: center;">
-        <button class="type type-left" on:click={() => isFile = true} class:active={isFile}>File</button>
-        <button class="type type-right" on:click={() => isFile = false} class:active={!isFile}>Size</button>
+        <button class="type type-left" on:click={() => {isFile = true; update()}} class:active={isFile}>File</button>
+        <button class="type type-right" on:click={() => {isFile = false; update()}} class:active={!isFile}>Size</button>
         <div class="question tooltip-container">
             <div>?</div>
             <div class="tooltip-text">File will show the amount of files with the extension name, size will show the bytes of data located within these files.</div>
