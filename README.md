@@ -21,6 +21,6 @@ Open the command pallete (`Ctrl-Shift-P`) and click `Display File Makeup`.
 
 ## License
 
-File Makeup Viewer is licensed under the MIT license
+File Makeup Viewer is licensed under the [MIT](./LICENSE) license
 
 ## Changelog
