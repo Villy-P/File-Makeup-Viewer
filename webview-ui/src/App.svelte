@@ -16,7 +16,7 @@
 	                                            // and the value is the amount of files or size of the files. 
 	
 	let ignore: string[] = [];                  // List of items to ignore, found in the text box within the UI      
-	let chart;                                  // The chart of items that is visualized.
+	let chart: Chart<"pie", any[], any>;        // The chart of items that is visualized.
 	let textarea: HTMLTextAreaElement;          // The UI Element of the text box for ignore folders
 	let isFile: boolean = true;                 // Whether or not the graph shows number of files with extension or size of files
 	
