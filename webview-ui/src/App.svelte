@@ -18,6 +18,7 @@
 	let chart: Chart<"pie", any[], any>;        // The chart of items that is visualized.
 	let textarea: HTMLTextAreaElement;          // The UI Element of the text box for ignore folders
 	let isFile: boolean = true;                 // Whether or not the graph shows number of files with extension or size of files
+	let fileOfType: string[];                   // List of files that match the clicked element
 	
 	onMount(() => {
 		provideVSCodeDesignSystem().register(vsCodeButton());
@@ -50,10 +51,13 @@
             },
 			options: {
 				onClick: (event, elements, chart) => {
+					fileOfType = [];
 					if (!elements)
 						return;
 					const i = elements[0].index;
-					console.log(chart.data.labels[i] + ': ' + chart.data.datasets[0].data[i]);
+					const label = (chart.data.labels[i] as string).slice(0, -5);
+					const file = fileJSON.find(f => f.name === label);
+					getFileOfExtension(directory.children, file.file);
 				}
 			}
         });
@@ -71,6 +75,16 @@
 			e = e.split('.').slice(1).join('.');
 		}
 		return null;
+	}
+
+	// Recursive function to get files of extension
+	function getFileOfExtension(files: Directory[], ext: string) {
+		for (const dir of files) {
+			if (dir.type == 'file' && dir.name.endsWith(ext))
+				fileOfType.push("." + dir.path.replace(cwd, ""));
+			if (dir.type == "directory")
+				getFileOfExtension(dir.children, ext);
+		}
 	}
 
 	// Recursive function that reads the current directory and its children to populate the file data
@@ -151,7 +165,13 @@
 	<div style="width: 700px; height: 700px;">
         <canvas id="myChart" role="img"></canvas>
     </div>
-	<div style="display: flex; justify-content: center; color: gray; flex-direction: column;">
+	{#if fileOfType}
+		<b style="padding-bottom: 3px;">Files with this extension:</b>
+		{#each fileOfType as file}
+			<p style="margin: 0;">{ file }</p>
+		{/each}
+	{/if}
+	<div style="display: flex; justify-content: center; color: gray; flex-direction: column; padding-top: 10px;">
 		{#each options as option}
 		<div style="display: flex; align-items: center;">
 			<input type="checkbox" id="show-hidden" bind:checked={option.checked} on:change={() => update()}/>
