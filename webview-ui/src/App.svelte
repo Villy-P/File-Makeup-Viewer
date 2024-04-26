@@ -42,7 +42,7 @@
             data: {
                 labels: [],
                 datasets: [{
-                    label: 'Files with this extension',
+                    label: '',
                     data: [],
                     backgroundColor: [],
                     hoverOffset: 4
@@ -97,14 +97,14 @@
 	function update() {
 		ignore = textarea.value.split("\n");
 		fileData.clear();
-		
+
 		readFileAndChildren(directory.children);
 		const extensionsSort = new Map([...fileData.entries()].sort((a, b) => b[1] - a[1]));
-
+		
 		chart.data = {
 			labels: Array.from(extensionsSort.keys()).map(e => JSON.parse(e).name + " File"),
 			datasets: [{
-				label: "Files with this extension",
+				label: isFile ? "Files with this extension" : "Collective Size of file (In bytes)",
 				data: Array.from(extensionsSort.values()).map(e => e.toString()),
 				backgroundColor: Array.from(extensionsSort.keys()).map(e => JSON.parse(e).color),
 				hoverOffset: 4
