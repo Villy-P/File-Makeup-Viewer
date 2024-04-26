@@ -21,6 +21,7 @@
 	
 	onMount(() => {
 		provideVSCodeDesignSystem().register(vsCodeButton());
+		// Getting data from the VSCode backend, found in src/extension.ts
 		window.addEventListener("message", (e) => {
 			if (e.data.title === "cwd")
 				cwd = e.data.msg;
@@ -32,6 +33,7 @@
 			}
 		});
 
+		// Initialize the graph with blank data
 		const ctx: any = document.getElementById('myChart');
 
 		chart = new Chart(ctx, {
@@ -48,6 +50,9 @@
         });
 	});
 
+	// Gets the file extension by running through each period value
+	// Example: item.ext1.ext2 will check to see if .ext1.ext2 exists,
+	// then .ext2
 	function getFileExtension(ext: string): FileType | null {
 		let e = ext;
 		while (e) {
@@ -59,6 +64,7 @@
 		return null;
 	}
 
+	// Recursive function that reads the current directory and its children to populate the file data
 	function readFileAndChildren(files: Directory[]) {
 		for (const dir of files) {
 			if (dir.name.startsWith(".") && !options[0].checked && dir.children)
@@ -85,6 +91,7 @@
 		}
 	}
 
+	// Updates the graph with data
 	function update() {
 		ignore = textarea.value.split("\n");
 		fileData.clear();
