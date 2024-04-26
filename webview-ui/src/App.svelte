@@ -8,15 +8,16 @@
 
 	import './styles/style.css'
 
-	let cwd = "";
-	let directory: Directory;
-	let fileJSON: FileType[];
-	let fileData: Map<string, number> = new Map<string, number>();
+	let cwd = "";                               // The current working directory the user is in. Is set on runtime.
+	let directory: Directory;                   // Current Working Directory the user is in represented in class form
+	let fileJSON: FileType[];                   // Data from src/file.json
+	let fileData = new Map<string, number>();   // File data shown in the graph. Key is the JSON value found in fileJSON stringified, 
+	                                            // and the value is the amount of files or size of the files. 
 	
-	let ignore: string[] = [];
-	let chart: Chart<"pie", string[], string> | undefined;
-	let textarea: HTMLTextAreaElement;
-	let isFile: boolean;
+	let ignore: string[] = [];                  // List of items to ignore, found in the text box within the UI      
+	let chart: Chart<"pie", string[], string>;  // The chart of items that is visualized.
+	let textarea: HTMLTextAreaElement;          // The UI Element of the text box for ignore folders
+	let isFile: boolean;                        // Whether or not the graph shows number of files with extension or size of files
 	
 	onMount(() => {
 		provideVSCodeDesignSystem().register(vsCodeButton());
