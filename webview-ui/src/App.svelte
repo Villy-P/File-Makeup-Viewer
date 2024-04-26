@@ -80,6 +80,8 @@
 	// Recursive function to get files of extension
 	function getFileOfExtension(files: Directory[], ext: string) {
 		for (const dir of files) {
+			if ((dir.name.startsWith(".") && !options[0].checked && dir.type == 'directory') || ignore.includes(dir.name))
+				continue;
 			if (dir.type == 'file' && dir.name.endsWith(ext))
 				fileOfType.push("." + dir.path.replace(cwd, ""));
 			if (dir.type == "directory")
