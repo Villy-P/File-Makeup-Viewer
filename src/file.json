@@ -281,6 +281,12 @@
             "file": ".ico",
             "name": "Icon",
             "color": "#FFFFFF"
+        },
+        {
+            "file": ".svelte",
+            "name": "Svelte",
+            "color": "#FF3C00",
+            "lang": true
         }
     ]
 }
