@@ -1,0 +1,38 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "files": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "file": {
+                        "type": "string",
+                        "markdownDescription": "The extension name of the file (e.x. `.json` `.svelte` `.cpp`)",
+                        "pattern": "\\..+"
+                    },
+                    "name": {
+                        "type": "string",
+                        "markdownDescription": "The name of the file (e.x. `JSON` `C++` `Svelte`). Will be suffixed with ` File`"
+                    },
+                    "color": {
+                        "type": "string",
+                        "markdownDescription": "Hexadecimal color value of the item. Use the main color of the logo of that language if applicable, or use another color.",
+                        "pattern": "#[0-9a-fA-F]{6}"
+                    },
+                    "lang": {
+                        "type": "boolean",
+                        "markdownDescription": "Whether or not the file is a language or not (`C++`, `Javascript`, `Python`)."
+                    },
+                    "groupWith": {
+                        "type": "string",
+                        "markdownDescription": "File extension of the item that this should group with. For example, `.mjs` and `.cjs` files group with their parent extension `.js`",
+                        "pattern": "\\..+"
+                    }
+                }
+            },
+            "required": ["file", "name", "color"]
+        }
+    }
+}

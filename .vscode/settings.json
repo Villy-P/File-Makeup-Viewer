@@ -8,5 +8,11 @@
     },
     // Turn off tsc task auto detection since we have the necessary tasks as npm scripts
     "typescript.tsc.autoDetect": "off",
-    "cmake.configureOnOpen": false
+    "cmake.configureOnOpen": false,
+    "json.schemas": [
+        {
+            "fileMatch": ["src/file.json"],
+            "url": "./src/schema.json"
+        }
+    ]
 }
