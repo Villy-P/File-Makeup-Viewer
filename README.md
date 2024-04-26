@@ -1,38 +1,26 @@
-# create-svelte
+# File Makeup Viewer
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+File Makeup Viewer is a VS Code extension that shows you a graph of all the files in your current working directory. Pull Requests welcome and needed!
 
-## Creating a project
+GIF here
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Usage
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+Open the command pallete (`Ctrl-Shift-P`) and click `Display File Makeup`.
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+## Features
 
-## Developing
+* View amount of file or collective file size
+* Hide hidden directories
+* Hide certain folders
+* Hide non-language files
+* Display all files of extension type
+* Group related files
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Contributing
 
-```bash
-npm run dev
+## License
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+File Makeup Viewer is licensed under the MIT license
 
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## Changelog
