@@ -19,6 +19,11 @@ Open the command pallete (`Ctrl-Shift-P`) and click `Display File Makeup`.
 
 ## Contributing
 
+We need contributers!
+
+Want to add some files or change a feature within the source code?
+Check out the [contributing guidelines](.github/CONTRIBUTING.md) before you make any changes.
+
 ## License
 
 File Makeup Viewer is licensed under the [MIT](./LICENSE) license
