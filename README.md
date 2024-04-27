@@ -29,3 +29,5 @@ Check out the [contributing guidelines](.github/CONTRIBUTING.md) before you make
 File Makeup Viewer is licensed under the [MIT](./LICENSE) license
 
 ## Changelog
+
+View all upcoming and previous releases [here](./CHANGELOG.md)

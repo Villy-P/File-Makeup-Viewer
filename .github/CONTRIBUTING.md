@@ -1,5 +1,9 @@
 # Contribution Guidelines
 
+## Before you start
+
+Make sure your idea hasn't already been added (see `Upcoming` under [`CHANGELOG.md`](../CHANGELOG.md))
+
 ## **Issues**
 
 1. Make sure the issue you have hasn't already been encountered.
@@ -22,8 +26,7 @@ You can press the edit button in the top right corner to fork the repo and quick
 5. (Optional) If your file is a language file (`.cpp` `.java` `.python`) or relating to a language (`.hpp` `.h`), add `lang: true` to the JSON object. `lang` defaults to false, so don't put `lang: false` for non-language files.
 6. (Optional) If your file is related to another language (like `.hpp` for `.cpp` files or `.mjs / .cjs` for `.js` files) add `groupWith: file_extension`.
 
-If only commiting one file, name your commit message `Added File file_name`.
-Otherwise, name it `Added number_of_files_added Files`.
+Name your PR `Added Files file1_name, file2name, etc.`
 
 ### Changing the source code
 
