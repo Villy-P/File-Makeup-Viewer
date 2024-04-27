@@ -31,3 +31,7 @@ File Makeup Viewer is licensed under the [MIT](./LICENSE) license
 ## Changelog
 
 View all upcoming and previous releases [here](./CHANGELOG.md)
+
+## Credits
+
+Extension Icon found [here](https://www.iconpacks.net/free-icon/pie-chart-683.html)
