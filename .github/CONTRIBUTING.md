@@ -53,4 +53,6 @@ After that:
 
 ## Final Remarks
 
+Once accepted, your PR will appear in the next version of File Makeup Viewer
+
 Thank you for opening a pull request!
