@@ -45,9 +45,23 @@ These are the folders you want to look out for:
             └── style.css   // CSS of the application
 ```
 
-Fork the repo, then make your changes.
+Fork the repo, then run these commands:
 
-After that:
+``` cmd
+npm i
+cd webview-ui
+npm i
+cd ..
+```
+
+After that, make your changes.
+
+To run the extension, run `npm run build:webview` to update the code.
+Then press `F5` to run the extension.
+
+> You must run `npm run build:webview` after making any changes
+
+Once you're finished
 
 1. Open a pull request.
 2. If your PR solved an issue, be sure to reference it in the title.
