@@ -26,6 +26,10 @@
   "activationEvents": [],
   "main": "./out/extension.js",
   "icon": "./assets/pie-chart-683.png",
+  "galleryBanner": {
+    "color": "#000000",
+    "theme": "dark"
+  },
   "contributes": {
     "commands": [
       {
