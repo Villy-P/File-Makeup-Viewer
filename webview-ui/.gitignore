@@ -1,8 +1,0 @@
-node_modules
-/public/build/
-dist
-dist-ssr
-build
-build-ssr
-
-.DS_Store

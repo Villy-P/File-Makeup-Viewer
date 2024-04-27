@@ -1,2 +1,9 @@
 node_modules/
 out/
+
+dist
+dist-ssr
+build
+build-ssr
+
+.DS_Store
