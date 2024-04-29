@@ -30,7 +30,7 @@ You can press the edit button in the top right corner to fork the repo and quick
 > You can run `.\src\scripts\getFilesForChangelog.mjs` to get a list of all files in `file.json` to put into the changelog.
 > Make sure you aren't copying files already included in previous releases.
 
-Name your PR `Added Files file1_name, file2name, etc.`
+Name your PR `Added number_of_files Files`, and add the changes into the changelog for what you did under `Unreleased`.
 
 ### Changing the source code
 
