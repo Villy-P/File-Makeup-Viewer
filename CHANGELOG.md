@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Upcoming
 
+### Fixed
+
+- Fixed bug where directory name wouldn't show up
+
 ### Removed
 
 - Removed `console.log` from `App.svelte`.
