@@ -7,7 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Upcoming
 
-Nothing Upcoming Yet
+### Added
+
+- Added new guidelines for contributing files
+
+#### Files
+
+- `.vsix (Visual Studio Extension Installer)`
+- `.vscodeignore (Visual Studio Code Ignore)`
+- `.gif (Graphics Interchange Format)`
+- `.svg (Scalable Vector Graphics)`
+- `.meta (Unity Asset Metadata)`
+- `.rsp (Response)`
+- `.prefab (Prefab)`
+- `.uss (Unity Style Sheet)`
+- `.xcconfig (XCode Configuration File)`
+
+### Changed
+
+- Changed the way `getFilesForChangelog.mjs` displayed files
+- Updated version `1.0.0` to match this change
 
 ## 1.0.6 - 2024-04-29
 
@@ -55,54 +74,55 @@ Nothing Upcoming Yet
 
 #### Files
 
-- `.md`
-- `.html`
-- `.cpp`
-- `.c`
-- `.json`
-- `.ts`
-- `.d.ts`
-- `.d.ts.map`
-- `.gitignore`
-- `.js`
-- `.js.map`
-- `.mjs`
-- `.cjs`
-- `.sample`
-- `.idx`
-- `.pack`
-- `.rev`
-- `.ninja_deps`
-- `.ninja_log`
-- `.ninja`
-- `.txt`
-- `.cmake`
-- `.bin`
-- `.h`
-- `.hpp`
-- `.cpp.obj`
-- `.exe`
-- `.check_cache`
-- `.yaml`
-- `.glsl`
-- `.css`
-- `.ps1`
-- `.png`
-- `.jpg`
-- `.java`
-- `.jar`
-- `.cs`
-- `.dll`
-- `.scss`
-- `.class`
-- `.vue`
-- `.pdb`
-- `.cache`
-- `.editorconfig`
-- `.ejs`
-- `.csproj`
-- `.props`
-- `.py`
-- `.pyc`
-- `.ico`
-- `.svelte`
+- `.md (Markdown)`
+- `.html (HTML)`
+- `.cpp (C++)`
+- `.c (C)`
+- `.json (JSON)`
+- `.ts (TypeScript)`
+- `.d.ts (Typescript Module)`
+- `.d.ts.map (Typescript Module Map)`
+- `.gitignore (Git Ignore)`
+- `.js (JavaScript)`
+- `.js.map (JavaScript Map)`
+- `.mjs (EMCAScript)`
+- `.cjs (CommonJS)`
+- `.sample (Sample)`
+- `.idx (Index)`
+- `.pack (Git Packfile)`
+- `.rev (Recovery)`
+- `.ninja_deps (Ninja Dependency)`
+- `.ninja_log (Ninja Log)`
+- `.ninja (Ninja)`
+- `.txt (Text)`
+- `.cmake (CMake)`
+- `.bin (Binary)`
+- `.h (Header)`
+- `.hpp (C++ Header)`
+- `.cpp.obj (C++ Object)`
+- `.exe (Executable)`
+- `.check_cache (CMake Check Cache)`
+- `.yaml (YAML)`
+- `.glsl (GLSL)`
+- `.css (CSS)`
+- `.ps1 (Powershell Script)`
+- `.png (PNG)`
+- `.jpg (JPG)`
+- `.java (Java)`
+- `.jar (Java Archive)`
+- `.cs (C#)`
+- `.dll (Dynamic Link Library)`
+- `.scss (SASS)`
+- `.class (Java Class)`
+- `.vue (Vue)`
+- `.pdb (Program Database)`
+- `.cache (Cache)`
+- `.editorconfig (Editor Config)`
+- `.ejs (Embedded Javascript)`
+- `.csproj (C# Project)`
+- `.props (C# Props)`
+- `.py (Python)`
+- `.pyc (Compiled Python Binaries)`
+- `.ico (Icon)`
+- `.svelte (Svelte)`
+- 
