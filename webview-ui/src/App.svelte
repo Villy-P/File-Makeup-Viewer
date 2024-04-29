@@ -29,7 +29,6 @@
 			if (e.data.title === "file")
 				fileJSON = JSON.parse(e.data.msg).files;
 			if (e.data.title === "dir") {
-				console.log(JSON.parse(e.data.msg));
 				directory = JSON.parse(e.data.msg);
 				update();
 			}
