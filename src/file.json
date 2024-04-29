@@ -287,6 +287,51 @@
             "name": "Svelte",
             "color": "#FF3C00",
             "lang": true
+        },
+        {
+            "file": ".vsix",
+            "name": "Visual Studio Extension Installer",
+            "color": "#0078d7"
+        },
+        {
+            "file": ".vscodeignore",
+            "name": "Visual Studio Code Ignore",
+            "color": "#0078d7"
+        },
+        {
+            "file": ".gif",
+            "name": "Graphics Interchange Format",
+            "color": "#00FFFF"
+        },
+        {
+            "file": ".svg",
+            "name": "Scalable Vector Graphics",
+            "color": "#00FFFF"
+        },
+        {
+            "file": ".meta",
+            "name": "Unity Asset Metadata",
+            "color": "#959595"
+        },
+        {
+            "file": ".rsp",
+            "name": "Response",
+            "color": "#00A3EE"
+        },
+        {
+            "file": ".prefab",
+            "name": "Prefab",
+            "color": "#959595"
+        },
+        {
+            "file": ".uss",
+            "name": "Unity Style Sheet",
+            "color": "#959595"
+        },
+        {
+            "file": ".xcconfig",
+            "name": "XCode Configuration File",
+            "color": "#555555"
         }
     ]
 }
