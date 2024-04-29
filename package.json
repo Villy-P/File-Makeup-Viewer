@@ -2,7 +2,7 @@
   "name": "file-makeup-viewer",
   "displayName": "File Makeup Viewer",
   "description": "File Makeup Viewer is a VS Code extension that shows you a graph of all the files in your current working directory. Pull Requests welcome and needed!",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "publisher": "Villy-P",
   "repository": "https://github.com/Villy-P/File-Makeup-Viewer",
   "license": "MIT",

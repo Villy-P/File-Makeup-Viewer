@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Upcoming
 
+Nothing here yet.
+
+## 1.0.5 - 2024-04-29
+
 ### Added
 
 - Added instructions to `CONTRIBUTING.md` to add things to `CHANGELOG.md` before opening Pull Request.
