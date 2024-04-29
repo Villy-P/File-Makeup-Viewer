@@ -2,7 +2,7 @@
 
 File Makeup Viewer is a VS Code extension that shows you a graph of all the files in your current working directory. Pull Requests welcome and needed!
 
-![Image](./assets/animation.gif)
+![Image](https://raw.githubusercontent.com/Villy-P/File-Makeup-Viewer/main/assets/animation.gif)
 
 ## Usage
 

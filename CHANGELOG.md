@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added instructions to `CONTRIBUTING.md` to add things to `CHANGELOG.md` before opening Pull Request.
 - Added `getFilesForChangelog.mjs` for easy additions.
 - Added all previous file types to `1.0.0`.
+- Fixed `animation.gif` not appearing.
 
 ## 1.0.4 - 2024-04-29
 
