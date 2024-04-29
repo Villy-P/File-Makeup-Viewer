@@ -2,8 +2,8 @@
   "name": "file-makeup-viewer",
   "displayName": "File Makeup Viewer",
   "description": "File Makeup Viewer is a VS Code extension that shows you a graph of all the files in your current working directory. Pull Requests welcome and needed!",
-  "version": "1.0.0",
-  "publisher": "Valerius Petrini",
+  "version": "1.0.4",
+  "publisher": "Villy-P",
   "repository": "https://github.com/Villy-P/File-Makeup-Viewer",
   "license": "MIT",
   "engines": {
@@ -24,7 +24,7 @@
     "graph"
   ],
   "activationEvents": [],
-  "main": "./out/extension.js",
+  "main": "./out/extension",
   "icon": "./assets/pie-chart-683.png",
   "galleryBanner": {
     "color": "#000000",
@@ -56,8 +56,6 @@
     "@typescript-eslint/eslint-plugin": "^4.14.1",
     "@typescript-eslint/parser": "^4.14.1",
     "bytes": "^3.1.2",
-    "chart.js": "^4.4.1",
-    "directory-tree": "^3.5.1",
     "eslint": "^7.19.0",
     "glob": "^7.1.6",
     "path": "^0.12.7",
@@ -66,6 +64,8 @@
     "vscode-test": "^1.5.0"
   },
   "dependencies": {
-    "svelte": "^4.2.15"
+    "svelte": "^4.2.15",
+    "chart.js": "^4.4.1",
+    "directory-tree": "^3.5.1"
   }
 }

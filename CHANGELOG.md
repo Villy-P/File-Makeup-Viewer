@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Nothing upcoming yet
 
+## 1.0.4 - 2024-04-29
+
+### Fixed
+
+- Fix dependencies not appearing in final build
+
 ## 1.0.0 - 2024-04-26
 
 ### Added

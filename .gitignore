@@ -7,3 +7,4 @@ build
 build-ssr
 
 .DS_Store
+*.vsix
