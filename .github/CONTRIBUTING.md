@@ -25,7 +25,10 @@ You can press the edit button in the top right corner to fork the repo and quick
 4. Add an `color`. If your file has an easily recognizable logo (like Reacts atom logo), use the primary color of that logo. If not, use another color.
 5. (Optional) If your file is a language file (`.cpp` `.java` `.python`) or relating to a language (`.hpp` `.h`), add `lang: true` to the JSON object. `lang` defaults to false, so don't put `lang: false` for non-language files.
 6. (Optional) If your file is related to another language (like `.hpp` for `.cpp` files or `.mjs / .cjs` for `.js` files) add `groupWith: file_extension`.
-7. Add a list of all files added to the unreleased section of `CHANGELOG.md` It should be under `#### Files` under `### Added`. See release `1.0.0` for an example.
+7. Add a list of all files added to the unreleased section of `CHANGELOG.md` It should be under `#### Files` under `### Added` within `# Unreleased`. See release `1.0.0` for an example.
+
+> You can run `.\src\scripts\getFilesForChangelog.mjs` to get a list of all files in `file.json` to put into the changelog.
+> Make sure you aren't copying files already included in previous releases.
 
 Name your PR `Added Files file1_name, file2name, etc.`
 

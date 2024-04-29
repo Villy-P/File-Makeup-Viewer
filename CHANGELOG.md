@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added instructions to `CONTRIBUTING.md` to add things to `CHANGELOG.md` before opening Pull Request.
+- Added `getFilesForChangelog.mjs` for easy additions.
+- Added all previous file types to `1.0.0`.
 
 ## 1.0.4 - 2024-04-29
 
@@ -28,3 +30,57 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Hide certain folders
 - Display all files with extension
 - Hide non-language files
+
+#### Files
+
+- `.md`
+- `.html`
+- `.cpp`
+- `.c`
+- `.json`
+- `.ts`
+- `.d.ts`
+- `.d.ts.map`
+- `.gitignore`
+- `.js`
+- `.js.map`
+- `.mjs`
+- `.cjs`
+- `.sample`
+- `.idx`
+- `.pack`
+- `.rev`
+- `.ninja_deps`
+- `.ninja_log`
+- `.ninja`
+- `.txt`
+- `.cmake`
+- `.bin`
+- `.h`
+- `.hpp`
+- `.cpp.obj`
+- `.exe`
+- `.check_cache`
+- `.yaml`
+- `.glsl`
+- `.css`
+- `.ps1`
+- `.png`
+- `.jpg`
+- `.java`
+- `.jar`
+- `.cs`
+- `.dll`
+- `.scss`
+- `.class`
+- `.vue`
+- `.pdb`
+- `.cache`
+- `.editorconfig`
+- `.ejs`
+- `.csproj`
+- `.props`
+- `.py`
+- `.pyc`
+- `.ico`
+- `.svelte`
