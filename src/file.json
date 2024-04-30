@@ -332,6 +332,11 @@
             "file": ".xcconfig",
             "name": "XCode Configuration File",
             "color": "#555555"
+        },
+        {
+            "file": ".zip",
+            "name": "ZIP",
+            "color": "e7c9a9"
         }
     ]
 }
