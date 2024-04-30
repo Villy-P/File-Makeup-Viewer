@@ -332,6 +332,16 @@
             "file": ".xcconfig",
             "name": "XCode Configuration File",
             "color": "#555555"
+        },
+        {
+            "file": ".fbx",
+            "name": "Filmbox",
+            "color": "#4ebaa9"
+        }, 
+        {
+            "file": ".obj",
+            "name": "Object",
+            "color": "#ff9436"
         }
     ]
 }
