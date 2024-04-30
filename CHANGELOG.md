@@ -24,6 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `.xcconfig (XCode Configuration File)`
 - `.fbx (Filmbox)`
 - `.obj (Object)`
+- `.zip (ZIP)`
 
 ### Changed
 

@@ -342,6 +342,11 @@
             "file": ".obj",
             "name": "Object",
             "color": "#ff9436"
+        },
+        {
+            "file": ".zip",
+            "name": "ZIP",
+            "color": "e7c9a9"
         }
     ]
 }
