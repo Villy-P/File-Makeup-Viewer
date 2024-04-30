@@ -1,4 +1,4 @@
-import { Disposable, Webview, WebviewPanel, window, Uri, ViewColumn } from "vscode";
+import { Disposable, Webview, WebviewPanel, window, Uri, ViewColumn, ExtensionContext } from "vscode";
 import { getUri } from "../utilities/getUri";
 import { getNonce } from "../utilities/getNonce";
 
@@ -14,7 +14,7 @@ import { getNonce } from "../utilities/getNonce";
  */
 export class HelloWorldPanel {
   public static currentPanel: HelloWorldPanel | undefined;
-  private readonly _panel: WebviewPanel;
+  public readonly _panel: WebviewPanel;
   private _disposables: Disposable[] = [];
 
   /**
@@ -25,7 +25,6 @@ export class HelloWorldPanel {
    */
   private constructor(panel: WebviewPanel, extensionUri: Uri) {
     this._panel = panel;
-
     // Set an event listener to listen for when the panel is disposed (i.e. when the user closes
     // the panel or when the panel is closed programmatically)
     this._panel.onDidDispose(() => this.dispose(), null, this._disposables);
