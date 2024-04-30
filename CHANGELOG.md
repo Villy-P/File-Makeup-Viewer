@@ -22,6 +22,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `.prefab (Prefab)`
 - `.uss (Unity Style Sheet)`
 - `.xcconfig (XCode Configuration File)`
+- `.fbx (Filmbox)`
+- `.obj (Object)`
 - `.zip (ZIP)`
 
 ### Changed

@@ -334,6 +334,16 @@
             "color": "#555555"
         },
         {
+            "file": ".fbx",
+            "name": "Filmbox",
+            "color": "#4ebaa9"
+        }, 
+        {
+            "file": ".obj",
+            "name": "Object",
+            "color": "#ff9436"
+        },
+        {
             "file": ".zip",
             "name": "ZIP",
             "color": "e7c9a9"
