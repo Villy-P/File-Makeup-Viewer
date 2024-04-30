@@ -28,6 +28,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Changed the way `getFilesForChangelog.mjs` displayed files
 - Updated version `1.0.0` to match this change
 
+### Fixed
+
+- Fixed bug where extension tab would not function if user left and returned.
+
 ## 1.0.6 - 2024-04-29
 
 ### Fixed

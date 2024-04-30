@@ -23,7 +23,9 @@
     "visualize",
     "graph"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onWebviewPanel:file-makeup-viewer"
+  ],
   "main": "./out/extension",
   "icon": "./assets/pie-chart-683.png",
   "galleryBanner": {
