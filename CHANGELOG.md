@@ -31,6 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Changed the way `getFilesForChangelog.mjs` displayed files
 - Updated version `1.0.0` to match this change
+- Minified `pie-chart-683.png` and `animation.gif`
 
 ### Fixed
 
