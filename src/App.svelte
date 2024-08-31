@@ -49,7 +49,7 @@
                 }]
             },
 			options: {
-				onClick: (event, elements, chart) => {
+				onClick: (_event: any, elements: { index: any; }[], chart: { data: { labels: any; }; }) => {
 					fileOfType = [];
 					if (!elements)
 						return;
