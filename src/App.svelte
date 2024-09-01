@@ -49,14 +49,14 @@
                 }]
             },
 			options: {
-				onClick: (event, elements, chart) => {
+				onClick: (_event: any, elements: { index: any; }[], chart: { data: { labels: any; }; }) => {
 					fileOfType = [];
 					if (!elements)
 						return;
 					const i = elements[0].index;
-					const label = (chart.data.labels[i] as string).slice(0, -5);
+					const label = (chart.data.labels![i] as string).slice(0, -5);
 					const file = fileJSON.find(f => f.name === label);
-					getFileOfExtension(directory.children, file.file);
+					getFileOfExtension(directory.children!, file!.file);
 				}
 			}
         });
@@ -84,7 +84,7 @@
 			if (dir.type == 'file' && dir.name.endsWith(ext))
 				fileOfType.push("." + dir.path.replace(cwd, ""));
 			if (dir.type == "directory")
-				getFileOfExtension(dir.children, ext);
+				getFileOfExtension(dir.children!, ext);
 		}
 	}
 
@@ -95,7 +95,7 @@
 				continue;
 			if (ignore.includes(dir.name))
 				continue;
-			if (dir.type == 'directory') {
+			if (dir.type == 'directory' && dir.children) {
 				readFileAndChildren(dir.children);
 			} else {
 				const ext = dir.name.split(".");
@@ -105,7 +105,7 @@
 				if (extension && !extension.lang && options[2].checked)
 					continue;
 				if (extension && extension.groupWith && options[1].checked)
-					extension = fileJSON.find((x) => x.file === extension.groupWith);
+					extension = fileJSON.find((x) => x.file === extension!.groupWith) || null;
 				if (!extension) {
 					fileJSON.push({file: '.' + extName, name: '.' + extName, color: "#000000"});
 					extension = fileJSON[fileJSON.length - 1];
@@ -121,7 +121,7 @@
 		ignore = textarea.value.split("\n");
 		fileData.clear();
 
-		readFileAndChildren(directory.children);
+		readFileAndChildren(directory.children!);
 		const extensionsSort = new Map([...fileData.entries()].sort((a, b) => b[1] - a[1]));
 		
 		chart.data = {

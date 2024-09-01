@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Upcoming
+## 1.1.0 - 2024-08-31
 
 ### Added
 
@@ -32,6 +32,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Changed the way `getFilesForChangelog.mjs` displayed files
 - Updated version `1.0.0` to match this change
 - Minified `pie-chart-683.png` and `animation.gif`
+- Placed webview and extension code in the same `src` directory
+- Updated all dependencies
 
 ### Fixed
 
