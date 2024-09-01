@@ -13,14 +13,6 @@ src/panels/**
 src/utilities/**
 src/extension.ts
 src/schema.json
-# Ignore all webview-ui files except the build directory
-webview-ui/src/**
-webview-ui/scripts/**
-webview-ui/index.html
-webview-ui/README.md
-webview-ui/package.json
-webview-ui/package-lock.json
-webview-ui/node_modules/**
 
 # Ignore Misc
 .yarnrc
