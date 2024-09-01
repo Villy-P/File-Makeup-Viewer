@@ -26,7 +26,7 @@
   "activationEvents": [
     "onWebviewPanel:file-makeup-viewer"
   ],
-  "main": "./out/extension",
+  "main": "./out/extension/extension.js",
   "icon": "./assets/pie-chart-683.png",
   "galleryBanner": {
     "color": "#000000",
