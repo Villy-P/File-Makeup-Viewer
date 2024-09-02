@@ -154,7 +154,7 @@
 	];
 </script>
 
-<main>
+<main class="flex flex-col justify-center items-start h-full">
 	<h1>File Makeup for {cwd}</h1>
 	<div style="display: flex; align-items: center;">
         <button class="type type-left" on:click={() => {isFile = true; update()}} class:active={isFile}>File</button>
@@ -196,13 +196,3 @@
 	</div>
 	<vscode-button on:click={() => update()}>Update</vscode-button><br><br>
 </main>
-
-<style>
-	main {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: flex-start;
-		height: 100%;
-	}
-</style>
