@@ -9,11 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Added PostCSS and Tailwind
+- Added PostCSS (`postcss.config.js`)
+- Added Tailwind (`tailwind.config.js`)
 
 ### Changed
 
 - Converted CSS plugin to PostCSS in `rollup.config.mjs`
+
+### Removed
+
+- Deleted dev dependency rollup-plugin-css-only
 
 ## 1.1.0 - 2024-08-31
 
