@@ -155,8 +155,8 @@
 </script>
 
 <main class="flex flex-col justify-center items-start h-full">
-	<h1>File Makeup for {cwd}</h1>
-	<div style="display: flex; align-items: center;">
+	<h1 class="text-2xl font-bold py-2">File Makeup for {cwd}</h1>
+	<div class="flex items-center">
         <button class="type type-left" on:click={() => {isFile = true; update()}} class:active={isFile}>File</button>
         <button class="type type-right" on:click={() => {isFile = false; update()}} class:active={!isFile}>Size</button>
         <div class="question tooltip-container">
@@ -168,14 +168,14 @@
         <canvas id="myChart" role="img"></canvas>
     </div>
 	{#if fileOfType}
-		<b style="padding-bottom: 3px;">Files with this extension:</b>
+		<b class="pb-[3px]">Files with this extension:</b>
 		{#each fileOfType as file}
 			<p style="margin: 0;">{ file }</p>
 		{/each}
 	{/if}
-	<div style="display: flex; justify-content: center; color: gray; flex-direction: column; padding-top: 10px;">
+	<div class="flex justify-center text-gray-500 flex-col pt-[10px]">
 		{#each options as option}
-		<div style="display: flex; align-items: center;">
+		<div class="flex items-center">
 			<input type="checkbox" id="show-hidden" bind:checked={option.checked} on:change={() => update()}/>
 			<label for="show-hidden">{ option.label }</label>
 			<div class="question tooltip-container">
@@ -185,14 +185,14 @@
 		</div>
 		{/each}
 		<br>
-		<div style="display: flex; align-items: center;">
+		<div class="flex items-center">
 			<h2>Ignore Folders</h2>
 			<div class="question tooltip-container">
 				<div>?</div>
 				<div class="tooltip-text">Each line will ignore a folder with that name. Do not include any slashes -- just use the name itself (like src or lib). Press Update to see changes</div>
 			</div>
 		</div>
-		<textarea id="textarea" bind:this={textarea}></textarea><br>
+		<textarea class="max-w-[500px] h-[150px] py-3 px-5 box-border border-2 border-white rounded-md bg-gray-500 text-lg resize-none font-serif text-gray-400" id="textarea" bind:this={textarea}></textarea><br>
 	</div>
 	<vscode-button on:click={() => update()}>Update</vscode-button><br><br>
 </main>

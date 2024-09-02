@@ -32,11 +32,9 @@ export default {
 			config: {
 			  path: './postcss.config.js',
 			},
-			extensions: ['.css'],
+			extensions: [".css"],
 			minimize: true,
-			inject: {
-			  insertAt: 'top',
-			},
+			extract: true,
 			plugins: [tailwindcss(tailwindConfig)],
 			output: "bundle.css"
 		}),

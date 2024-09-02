@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Converted CSS plugin to PostCSS in `rollup.config.mjs`
+- Convert CSS styles to Tailwind in `App.svelte`
 
 ### Removed
 
