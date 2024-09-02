@@ -7,6 +7,7 @@
 	import Chart from 'chart.js/auto'
 
 	import './styles/style.css'
+	import "./app.css";
 
 	let cwd = "";                               // The current working directory the user is in. Is set on runtime.
 	let directory: Directory;                   // Current Working Directory the user is in represented in class form
