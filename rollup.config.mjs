@@ -5,6 +5,8 @@ import { terser } from 'rollup-plugin-terser';
 import { sveltePreprocess } from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
 import postcss from 'rollup-plugin-postcss';
+import tailwindcss from 'tailwindcss';
+import tailwindConfig from './tailwind.config.js';
 
 const production = !process.env.ROLLUP_WATCH;
 
