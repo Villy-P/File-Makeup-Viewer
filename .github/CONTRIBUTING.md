@@ -41,12 +41,10 @@ These are the folders you want to look out for:
 ``` txt
 .
 ├── src
-│   └── extension.ts        // Backend of the extension
-└── webview-ui
-    └── src
-        ├── App.svelte      // The webpanel containing TS and the UI
-        └── styles
-            └── style.css   // CSS of the application
+│   └── extension.ts    // Backend of the extension
+    ├── App.svelte      // The webpanel containing TS and the UI
+    └── styles
+        └── style.css   // CSS of the application
 ```
 
 Fork the repo, then run these commands:
