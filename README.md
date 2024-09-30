@@ -4,6 +4,7 @@
 ![GitHub Repo stars](https://img.shields.io/github/stars/Villy-P/File-Makeup-Viewer?style=for-the-badge)
 ![GitHub Repo stars](https://img.shields.io/github/watchers/Villy-P/File-Makeup-Viewer?style=for-the-badge)
 ![Visual Studio Marketplace Rating](https://img.shields.io/visual-studio-marketplace/stars/villy-p.file-makeup-viewer?style=for-the-badge)
+![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 
 File Makeup Viewer is a VS Code extension that shows you a graph of all the files in your current working directory. Pull Requests welcome and needed!
 

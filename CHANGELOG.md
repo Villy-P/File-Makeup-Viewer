@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added PostCSS (`postcss.config.js`)
 - Added Tailwind (`tailwind.config.js`)
 - Added `app.css`
+- Added Visual Studio Code badge to `README.md`
 
 ### Changed
 
