@@ -201,7 +201,6 @@
         margin-inline-end: 8px;
     }
 
-    .btn-start svg,
     .btn-start span {
         width: calc(var(--design-unit, 4) * 4px);
         height: calc(var(--design-unit, 4) * 4px);
