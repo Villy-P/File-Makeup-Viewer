@@ -8,6 +8,7 @@
 
 	import './styles/style.css'
 	import "./app.css";
+	import Button from "./ui/Button.svelte";
 
 	let cwd = "";                               // The current working directory the user is in. Is set on runtime.
 	let directory: Directory;                   // Current Working Directory the user is in represented in class form
@@ -194,5 +195,5 @@
 		<textarea class="max-w-[500px] h-[150px] py-3 px-5 box-border border-2 border-white rounded-md bg-gray-500 text-lg resize-none font-serif text-gray-400" id="textarea" bind:this={textarea}></textarea><br>
 	</div>
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
-	<vscode-button role="button" tabindex="0" on:click={() => update()}>Update</vscode-button><br><br>
+	<Button on:click={() => update()}>Update</Button><br><br>
 </main>
