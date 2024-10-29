@@ -186,17 +186,8 @@
 					<Tooltip tooltipContainerClass="w-40">{option.tooltip}</Tooltip>
 				</Badge>
 			</div>
-		<!-- <div class="flex items-center">
-			<input type="checkbox" id="show-hidden" bind:checked={option.checked} on:change={() => update()}/>
-			<label for="show-hidden">{ option.label }</label>
-			<div class="question tooltip-container">
-				<div>?</div>
-				<div class="tooltip-text">{ option.tooltip }</div>
-			</div>
-		</div> -->
 		{/each}
 		<br>
-		<!-- <div class="tooltip-text">Each line will ignore a folder with that name. Do not include any slashes -- just use the name itself (like src or lib). Press Update to see changes</div> -->
 		<TextArea 
 			textareaclass="h-40" 
 			placeholder="node_modules, build/, etc." 
