@@ -1,10 +1,11 @@
 <script lang="ts">
-	import { provideVSCodeDesignSystem, vsCodeButton } from "@vscode/webview-ui-toolkit";
+	import "@vscode-elements/elements/dist/vscode-button/index.js";
     import { onMount } from "svelte";
 
     import type { FileType, OptionCheckBox, Directory } from "./types";
 
 	import Chart from 'chart.js/auto'
+	import type { ChartTypeRegistry, ChartEvent, ActiveElement } from 'chart.js'
 
 	import './styles/style.css'
 	import "./app.css";
@@ -22,7 +23,6 @@
 	let fileOfType: string[];                   // List of files that match the clicked element
 	
 	onMount(() => {
-		provideVSCodeDesignSystem().register(vsCodeButton());
 		// Getting data from the VSCode backend, found in src/extension.ts
 		window.addEventListener("message", (e) => {
 			if (e.data.title === "cwd")
@@ -50,7 +50,7 @@
                 }]
             },
 			options: {
-				onClick: (_event: any, elements: { index: any; }[], chart: { data: { labels: any; }; }) => {
+				onClick: (event: ChartEvent, elements: ActiveElement[], chart: Chart<keyof ChartTypeRegistry>) => {
 					fileOfType = [];
 					if (!elements)
 						return;
@@ -194,5 +194,6 @@
 		</div>
 		<textarea class="max-w-[500px] h-[150px] py-3 px-5 box-border border-2 border-white rounded-md bg-gray-500 text-lg resize-none font-serif text-gray-400" id="textarea" bind:this={textarea}></textarea><br>
 	</div>
-	<vscode-button on:click={() => update()}>Update</vscode-button><br><br>
+	<!-- svelte-ignore a11y-click-events-have-key-events -->
+	<vscode-button role="button" tabindex="0" on:click={() => update()}>Update</vscode-button><br><br>
 </main>
