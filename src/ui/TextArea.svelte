@@ -13,6 +13,8 @@
     export let resize: TextAreaResize = "none";
     export let rows: number | undefined = undefined;
     export let value: string = "";
+
+    export let textareaclass: string = "";
 </script>
 
 <div class="textarea" aria-label={label} class:disabled class:readonly data-resize={resize} {...$$restProps}>
@@ -21,7 +23,7 @@
     {/if}
     <!-- svelte-ignore a11y-autofocus -->
     <textarea
-        class="textarea-control"
+        class="textarea-control {textareaclass}"
         id="textarea-control"
         aria-label={label}
         bind:value

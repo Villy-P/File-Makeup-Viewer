@@ -9,6 +9,7 @@
 	import './styles/style.css'
 	import "./app.css";
 	import Button from "./ui/Button.svelte";
+	import TextArea from "./ui/TextArea.svelte";
 
 	let cwd = "";                               // The current working directory the user is in. Is set on runtime.
 	let directory: Directory;                   // Current Working Directory the user is in represented in class form
@@ -18,7 +19,7 @@
 	
 	let ignore: string[] = [];                  // List of items to ignore, found in the text box within the UI      
 	let chart: Chart<"pie", any[], any>;        // The chart of items that is visualized.
-	let textarea: HTMLTextAreaElement;          // The UI Element of the text box for ignore folders
+	let textareavalue: string; 		            // The value for UI Element of the text box for ignore folders
 	let isFile: boolean = true;                 // Whether or not the graph shows number of files with extension or size of files
 	let fileOfType: string[];                   // List of files that match the clicked element
 	
@@ -119,7 +120,7 @@
 
 	// Updates the graph with data
 	function update() {
-		ignore = textarea.value.split("\n");
+		ignore = textareavalue.split("\n");
 		fileData.clear();
 
 		readFileAndChildren(directory.children!);
@@ -185,14 +186,8 @@
 		</div>
 		{/each}
 		<br>
-		<div class="flex items-center">
-			<h2>Ignore Folders</h2>
-			<div class="question tooltip-container">
-				<div>?</div>
-				<div class="tooltip-text">Each line will ignore a folder with that name. Do not include any slashes -- just use the name itself (like src or lib). Press Update to see changes</div>
-			</div>
-		</div>
-		<textarea class="max-w-[500px] h-[150px] py-3 px-5 box-border border-2 border-white rounded-md bg-gray-500 text-lg resize-none font-serif text-gray-400" id="textarea" bind:this={textarea}></textarea><br>
+		<!-- <div class="tooltip-text">Each line will ignore a folder with that name. Do not include any slashes -- just use the name itself (like src or lib). Press Update to see changes</div> -->
+		<TextArea textareaclass="h-40" label="Ignore Folders" id="textarea" bind:value={textareavalue}></TextArea><br>
 	</div>
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
 	<Button on:click={() => update()}>Update</Button><br><br>
