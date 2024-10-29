@@ -11,6 +11,8 @@
 	import Button from "./ui/Button.svelte";
 	import TextArea from "./ui/TextArea.svelte";
 	import Checkbox from "./ui/Checkbox.svelte";
+	import Badge from "./ui/Badge.svelte";
+	import Tooltip from "./ui/Tooltip.svelte";
 
 	let cwd = "";                               // The current working directory the user is in. Is set on runtime.
 	let directory: Directory;                   // Current Working Directory the user is in represented in class form
@@ -177,7 +179,13 @@
 	{/if}
 	<div class="flex justify-center text-gray-500 flex-col pt-[10px]">
 		{#each options as option}
-			<Checkbox label={option.label} bind:checked={option.checked} onclickcheck={() => update()}/>
+			<div class="flex items-center h-6">
+				<Checkbox label={option.label} bind:checked={option.checked} onclickcheck={() => update()}/>
+				<Badge>
+					?
+					<Tooltip tooltipContainerClass="w-40">{option.tooltip}</Tooltip>
+				</Badge>
+			</div>
 		<!-- <div class="flex items-center">
 			<input type="checkbox" id="show-hidden" bind:checked={option.checked} on:change={() => update()}/>
 			<label for="show-hidden">{ option.label }</label>
