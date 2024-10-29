@@ -161,7 +161,7 @@
 </script>
 
 <main class="flex flex-col justify-center items-start h-full">
-	<h1 class="text-2xl font-bold py-2">File Makeup for {cwd}</h1>
+	<h1 class="main-header font-bold py-2">File Makeup for {cwd}</h1>
 	<Dropdown>
 		<Option on:click={() => {isFile = true; update()}}>Display File Count</Option>
 		<Option on:click={() => {isFile = false; update()}}>Display Byte Count</Option>
