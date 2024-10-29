@@ -187,7 +187,7 @@
 		{/each}
 		<br>
 		<!-- <div class="tooltip-text">Each line will ignore a folder with that name. Do not include any slashes -- just use the name itself (like src or lib). Press Update to see changes</div> -->
-		<TextArea textareaclass="h-40" label="Ignore Folders" id="textarea" bind:value={textareavalue}></TextArea><br>
+		<TextArea textareaclass="h-40" placeholder="node_modules, build/, etc." label="Ignore Folders" id="textarea" bind:value={textareavalue}></TextArea><br>
 	</div>
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
 	<Button on:click={() => update()}>Update</Button><br><br>
