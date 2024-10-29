@@ -1,5 +1,4 @@
 <script lang="ts">
-	import "@vscode-elements/elements/dist/vscode-button/index.js";
     import { onMount } from "svelte";
 
     import type { FileType, OptionCheckBox, Directory } from "./types";
@@ -9,6 +8,13 @@
 
 	import './styles/style.css'
 	import "./app.css";
+	import Button from "./ui/Button.svelte";
+	import TextArea from "./ui/TextArea.svelte";
+	import Checkbox from "./ui/Checkbox.svelte";
+	import Badge from "./ui/Badge.svelte";
+	import Tooltip from "./ui/Tooltip.svelte";
+	import Dropdown from "./ui/Dropdown.svelte";
+	import Option from "./ui/Option.svelte";
 
 	let cwd = "";                               // The current working directory the user is in. Is set on runtime.
 	let directory: Directory;                   // Current Working Directory the user is in represented in class form
@@ -18,7 +24,7 @@
 	
 	let ignore: string[] = [];                  // List of items to ignore, found in the text box within the UI      
 	let chart: Chart<"pie", any[], any>;        // The chart of items that is visualized.
-	let textarea: HTMLTextAreaElement;          // The UI Element of the text box for ignore folders
+	let textareavalue: string; 		            // The value for UI Element of the text box for ignore folders
 	let isFile: boolean = true;                 // Whether or not the graph shows number of files with extension or size of files
 	let fileOfType: string[];                   // List of files that match the clicked element
 	
@@ -119,7 +125,7 @@
 
 	// Updates the graph with data
 	function update() {
-		ignore = textarea.value.split("\n");
+		ignore = textareavalue.split("\n");
 		fileData.clear();
 
 		readFileAndChildren(directory.children!);
@@ -155,15 +161,11 @@
 </script>
 
 <main class="flex flex-col justify-center items-start h-full">
-	<h1 class="text-2xl font-bold py-2">File Makeup for {cwd}</h1>
-	<div class="flex items-center">
-        <button class="type type-left" on:click={() => {isFile = true; update()}} class:active={isFile}>File</button>
-        <button class="type type-right" on:click={() => {isFile = false; update()}} class:active={!isFile}>Size</button>
-        <div class="question tooltip-container">
-            <div>?</div>
-            <div class="tooltip-text">File will show the amount of files with the extension name, size will show the bytes of data located within these files.</div>
-        </div>
-    </div>
+	<h1 class="main-header font-bold py-2">File Makeup for {cwd}</h1>
+	<Dropdown>
+		<Option on:click={() => {isFile = true; update()}}>Display File Count</Option>
+		<Option on:click={() => {isFile = false; update()}}>Display Byte Count</Option>
+	</Dropdown>
 	<div style="width: 700px; height: 700px;">
         <canvas id="myChart" role="img"></canvas>
     </div>
@@ -175,25 +177,21 @@
 	{/if}
 	<div class="flex justify-center text-gray-500 flex-col pt-[10px]">
 		{#each options as option}
-		<div class="flex items-center">
-			<input type="checkbox" id="show-hidden" bind:checked={option.checked} on:change={() => update()}/>
-			<label for="show-hidden">{ option.label }</label>
-			<div class="question tooltip-container">
-				<div>?</div>
-				<div class="tooltip-text">{ option.tooltip }</div>
+			<div class="flex items-center h-6">
+				<Checkbox label={option.label} bind:checked={option.checked} onclickcheck={() => update()}/>
+				<Badge>?<Tooltip tooltipContainerClass="w-40">{option.tooltip}</Tooltip></Badge>
 			</div>
-		</div>
 		{/each}
 		<br>
-		<div class="flex items-center">
-			<h2>Ignore Folders</h2>
-			<div class="question tooltip-container">
-				<div>?</div>
-				<div class="tooltip-text">Each line will ignore a folder with that name. Do not include any slashes -- just use the name itself (like src or lib). Press Update to see changes</div>
-			</div>
-		</div>
-		<textarea class="max-w-[500px] h-[150px] py-3 px-5 box-border border-2 border-white rounded-md bg-gray-500 text-lg resize-none font-serif text-gray-400" id="textarea" bind:this={textarea}></textarea><br>
+		<TextArea 
+			textareaclass="h-40" 
+			placeholder="node_modules, build/, etc." 
+			label="Ignore Folders" 
+			id="textarea" 
+			tooltiptext="Each line will ignore a folder with that name. Do not include any slashes -- just use the name itself (like src or lib). Press Update to see changes"
+			bind:value={textareavalue}>
+		</TextArea><br>
 	</div>
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
-	<vscode-button role="button" tabindex="0" on:click={() => update()}>Update</vscode-button><br><br>
+	<Button on:click={() => update()}>Update</Button><br><br>
 </main>
