@@ -13,6 +13,7 @@
     aria-disabled={disabled}
     role="option"
     class="option"
+    on:click
     {...$$restProps}
 >
     <span class="option-content">

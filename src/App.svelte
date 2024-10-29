@@ -13,6 +13,8 @@
 	import Checkbox from "./ui/Checkbox.svelte";
 	import Badge from "./ui/Badge.svelte";
 	import Tooltip from "./ui/Tooltip.svelte";
+	import Dropdown from "./ui/Dropdown.svelte";
+	import Option from "./ui/Option.svelte";
 
 	let cwd = "";                               // The current working directory the user is in. Is set on runtime.
 	let directory: Directory;                   // Current Working Directory the user is in represented in class form
@@ -160,14 +162,10 @@
 
 <main class="flex flex-col justify-center items-start h-full">
 	<h1 class="text-2xl font-bold py-2">File Makeup for {cwd}</h1>
-	<div class="flex items-center">
-        <button class="type type-left" on:click={() => {isFile = true; update()}} class:active={isFile}>File</button>
-        <button class="type type-right" on:click={() => {isFile = false; update()}} class:active={!isFile}>Size</button>
-        <div class="question tooltip-container">
-            <div>?</div>
-            <div class="tooltip-text">File will show the amount of files with the extension name, size will show the bytes of data located within these files.</div>
-        </div>
-    </div>
+	<Dropdown>
+		<Option on:click={() => {isFile = true; update()}}>Display File Count</Option>
+		<Option on:click={() => {isFile = false; update()}}>Display Byte Count</Option>
+	</Dropdown>
 	<div style="width: 700px; height: 700px;">
         <canvas id="myChart" role="img"></canvas>
     </div>
@@ -181,10 +179,7 @@
 		{#each options as option}
 			<div class="flex items-center h-6">
 				<Checkbox label={option.label} bind:checked={option.checked} onclickcheck={() => update()}/>
-				<Badge>
-					?
-					<Tooltip tooltipContainerClass="w-40">{option.tooltip}</Tooltip>
-				</Badge>
+				<Badge>?<Tooltip tooltipContainerClass="w-40">{option.tooltip}</Tooltip></Badge>
 			</div>
 		{/each}
 		<br>
