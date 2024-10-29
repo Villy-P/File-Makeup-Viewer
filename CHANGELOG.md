@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Upcoming
 
+### Added
+
+- Added `types/ui.ts`
+- Added `Badge.svelte`
+- Added `Button.svelte`
+- Added `Checkbox.svelte`
+- Added `Dropdown.svelte`
+- Added `Option.svelte`
+- Added `TextArea.svelte`
+- Added `Tooltip.svelte`
+
+### Changed
+
+- Changed UI to conform to the VSCode style
+
+### Fixed
+
+Fixed type error relating to ChartJS
+
 ## 1.1.1 - 2024-10-9
 
 ### Added
