@@ -136,7 +136,6 @@
     .textarea-label {
         display: block;
         color: var(--vscode-foreground, #ccc);
-        cursor: pointer;
         font-size: var(--vscode-font-size, 13px);
         line-height: var(--type-ramp-base-line-height, normal);
         margin-bottom: 2px;
