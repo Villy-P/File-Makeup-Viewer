@@ -7,6 +7,7 @@
     export let readonly: boolean = false;
 
     export let indeterminate: boolean = false;
+    export let onclickcheck: () => void;
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -26,6 +27,7 @@
         if (!disabled && !readonly) {
             indeterminate = false;
             checked = !checked;
+            onclickcheck();
         }
     }}
     on:keyup
@@ -37,7 +39,6 @@
     on:mouseenter
     on:mouseleave
     on:paste
-    on:change
     {...$$restProps}
 >
     <div class="check-control">
@@ -62,7 +63,7 @@
     </div>
     <!-- svelte-ignore a11y-label-has-associated-control -->
     {#if label}
-        <label class="check-label"> Label </label>
+        <label class="check-label">{label}</label>
     {/if}
 </div>
 

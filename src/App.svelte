@@ -10,6 +10,7 @@
 	import "./app.css";
 	import Button from "./ui/Button.svelte";
 	import TextArea from "./ui/TextArea.svelte";
+	import Checkbox from "./ui/Checkbox.svelte";
 
 	let cwd = "";                               // The current working directory the user is in. Is set on runtime.
 	let directory: Directory;                   // Current Working Directory the user is in represented in class form
@@ -176,14 +177,15 @@
 	{/if}
 	<div class="flex justify-center text-gray-500 flex-col pt-[10px]">
 		{#each options as option}
-		<div class="flex items-center">
+			<Checkbox label={option.label} bind:checked={option.checked} onclickcheck={() => update()}/>
+		<!-- <div class="flex items-center">
 			<input type="checkbox" id="show-hidden" bind:checked={option.checked} on:change={() => update()}/>
 			<label for="show-hidden">{ option.label }</label>
 			<div class="question tooltip-container">
 				<div>?</div>
 				<div class="tooltip-text">{ option.tooltip }</div>
 			</div>
-		</div>
+		</div> -->
 		{/each}
 		<br>
 		<!-- <div class="tooltip-text">Each line will ignore a folder with that name. Do not include any slashes -- just use the name itself (like src or lib). Press Update to see changes</div> -->
