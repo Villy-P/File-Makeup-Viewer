@@ -1,5 +1,4 @@
 <script lang="ts">
-	import "@vscode-elements/elements/dist/vscode-button/index.js";
     import { onMount } from "svelte";
 
     import type { FileType, OptionCheckBox, Directory } from "./types";
