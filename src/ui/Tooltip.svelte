@@ -57,7 +57,7 @@
         border-color: var(--vscode-editorHoverWidget-background, #252526) transparent transparent transparent;
     }
 
-    .tooltip-wrapper:hover .tooltip {
+    :global(.tooltip-wrapper:hover .tooltip) {
         visibility: visible;
         opacity: 1;
     }

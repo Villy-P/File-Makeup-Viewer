@@ -1,5 +1,6 @@
 <script lang="ts">
     import type { TextAreaResize } from "../types/ui";
+	import Tooltip from "./Tooltip.svelte";
 
     export let label: string;
     export let autofocus: boolean = false;
@@ -15,11 +16,17 @@
     export let value: string = "";
 
     export let textareaclass: string = "";
+    export let tooltiptext: string = "";
 </script>
 
 <div class="textarea" aria-label={label} class:disabled class:readonly data-resize={resize} {...$$restProps}>
     {#if label.length > 0}
-        <label for="textarea-control" class="textarea-label">{label}</label>
+        <label for="textarea-control" class="textarea-label">
+            {label}
+            {#if tooltiptext.length > 0}
+                <Tooltip tooltipContainerClass="w-40">{ tooltiptext }</Tooltip>
+            {/if}
+        </label>
     {/if}
     <!-- svelte-ignore a11y-autofocus -->
     <textarea
@@ -133,6 +140,7 @@
         font-size: var(--vscode-font-size, 13px);
         line-height: var(--type-ramp-base-line-height, normal);
         margin-bottom: 2px;
+        width: fit-content;
     }
 
     .textarea.disabled .textarea-label,
