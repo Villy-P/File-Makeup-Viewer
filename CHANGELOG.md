@@ -22,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Changed UI to conform to the VSCode style
 - Moved `styles/style.css` to main `app.css` file
+- Updated `animation.gif` to use the new UI style
 
 ### Fixed
 
