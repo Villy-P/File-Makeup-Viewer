@@ -44,12 +44,11 @@ These are the folders you want to look out for:
     ├── extension         
     │   └── extension.ts   // Backend of the extension
     ├── App.svelte         // The main webpanel
-    ├── styles
-    │   └── style.css      // CSS of the application
-    └── ui                 // Folder containing all UI Svelte Components
+    ├── ui                 // Folder containing all UI Svelte Components
+    └── app.css            // File containing all CSS
 ```
 
-> Although there is a CSS folder, try using Tailwind for any elements in `App.svelte`
+> Although there is a CSS file, try using Tailwind for any elements in `App.svelte`
 > If you are changing something in the `ui` folder, update the `CSS` in the `style` tag.
 
 Fork the repo, then run `npm install`

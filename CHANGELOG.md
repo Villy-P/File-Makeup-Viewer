@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Changed UI to conform to the VSCode style
+- Moved `styles/style.css` to main `app.css` file
 
 ### Fixed
 

@@ -6,7 +6,6 @@
 	import Chart from 'chart.js/auto'
 	import type { ChartTypeRegistry, ChartEvent, ActiveElement } from 'chart.js'
 
-	import './styles/style.css'
 	import "./app.css";
 	import Button from "./ui/Button.svelte";
 	import TextArea from "./ui/TextArea.svelte";
