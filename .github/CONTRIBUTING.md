@@ -58,10 +58,11 @@ cd ..
 
 After that, make your changes.
 
-To run the extension, run `npm run build:webview` to update the code.
+To run the extension, run `npm run compile` to update the code.
 Then press `F5` to run the extension.
 
-> You must run `npm run build:webview` after making any changes
+> The command `npm run compile` will automatically run whenever you change the frontend or backend code
+> Because of ths, in order to refresh the page you can close the tab and reopen it using `Ctrl-Shift-P` > `Display File Makeup`
 
 Add your changes, additions, or removals to the `Unreleased` section of `CHANGELOG.md`.
 This project follows [this](https://keepachangelog.com/en/1.1.0/) format.
