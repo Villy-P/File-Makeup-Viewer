@@ -40,28 +40,26 @@ These are the folders you want to look out for:
 
 ``` txt
 .
-├── src
-│   └── extension.ts    // Backend of the extension
-    ├── App.svelte      // The webpanel containing TS and the UI
-    └── styles
-        └── style.css   // CSS of the application
+└── src
+    ├── extension         
+    │   └── extension.ts   // Backend of the extension
+    ├── App.svelte         // The main webpanel
+    ├── ui                 // Folder containing all UI Svelte Components
+    └── app.css            // File containing all CSS
 ```
 
-Fork the repo, then run these commands:
+> Although there is a CSS file, try using Tailwind for any elements in `App.svelte`
+> If you are changing something in the `ui` folder, update the `CSS` in the `style` tag.
 
-``` cmd
-npm i
-cd webview-ui
-npm i
-cd ..
-```
+Fork the repo, then run `npm install`
 
 After that, make your changes.
 
-To run the extension, run `npm run build:webview` to update the code.
+To run the extension, run `npm run compile` to update the code.
 Then press `F5` to run the extension.
 
-> You must run `npm run build:webview` after making any changes
+> The command `npm run compile` will automatically run whenever you change the frontend or backend code
+> Because of ths, in order to refresh the page you can close the tab and reopen it using `Ctrl-Shift-P` > `Display File Makeup`
 
 Add your changes, additions, or removals to the `Unreleased` section of `CHANGELOG.md`.
 This project follows [this](https://keepachangelog.com/en/1.1.0/) format.

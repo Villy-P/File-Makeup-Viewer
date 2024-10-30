@@ -6,8 +6,6 @@
 	import Chart from 'chart.js/auto'
 	import type { ChartTypeRegistry, ChartEvent, ActiveElement } from 'chart.js'
 
-	import './styles/style.css'
-	import "./app.css";
 	import Button from "./ui/Button.svelte";
 	import TextArea from "./ui/TextArea.svelte";
 	import Checkbox from "./ui/Checkbox.svelte";
@@ -15,6 +13,8 @@
 	import Tooltip from "./ui/Tooltip.svelte";
 	import Dropdown from "./ui/Dropdown.svelte";
 	import Option from "./ui/Option.svelte";
+
+	import "./app.css";
 
 	let cwd = "";                               // The current working directory the user is in. Is set on runtime.
 	let directory: Directory;                   // Current Working Directory the user is in represented in class form

@@ -21,10 +21,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Changed UI to conform to the VSCode style
+- Moved `styles/style.css` to main `app.css` file
 
 ### Fixed
 
-Fixed type error relating to ChartJS
+- Fixed type error relating to ChartJS
+- Fixed `CONTRIBUTING.md` having incorrect run command
+- Fixed `CONTRIBUTING.md` having incorrect startup command
+- Fixed `CONTRIBUTING.md` folder structure
 
 ## 1.1.1 - 2024-10-9
 
