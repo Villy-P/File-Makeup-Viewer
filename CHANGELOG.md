@@ -26,6 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Fixed type error relating to ChartJS
 - Fixed `CONTRIBUTING.md` having incorrect run command
+- Fixed `CONTRIBUTING.md` having incorrect startup command
 
 ## 1.1.1 - 2024-10-9
 

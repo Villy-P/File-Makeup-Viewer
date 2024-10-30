@@ -47,14 +47,7 @@ These are the folders you want to look out for:
         └── style.css   // CSS of the application
 ```
 
-Fork the repo, then run these commands:
-
-``` cmd
-npm i
-cd webview-ui
-npm i
-cd ..
-```
+Fork the repo, then run `npm install`
 
 After that, make your changes.
 
