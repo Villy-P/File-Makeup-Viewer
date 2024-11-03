@@ -17,6 +17,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `Option.svelte`
 - Added `TextArea.svelte`
 - Added `Tooltip.svelte`
+- Added new Issue Template `Bug Report`
+- Added new Issue Template `Extension Request`
 
 ### Changed
 
