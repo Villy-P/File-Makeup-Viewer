@@ -131,6 +131,18 @@
 		readFileAndChildren(directory.children!);
 		const extensionsSort = new Map([...fileData.entries()].sort((a, b) => b[1] - a[1]));
 		
+		// If can't find any file in the directory, display empty header
+		if (!extensionsSort.size) {
+			const alert = document.getElementById("empty");
+			alert.classList.remove("hidden");
+			const displayOption = document.getElementById("displayOption");
+			displayOption.style.display = "none";
+		}
+		else {
+			const displayOption = document.getElementById("displayOption");
+			displayOption.style.display = "block";
+		}
+
 		chart.data = {
 			labels: Array.from(extensionsSort.keys()).map(e => JSON.parse(e).name + " File"),
 			datasets: [{
@@ -162,7 +174,8 @@
 
 <main class="flex flex-col justify-center items-start h-full">
 	<h1 class="main-header font-bold py-2">File Makeup for {cwd}</h1>
-	<Dropdown>
+	<h2 id="empty" class="hidden"> No files were found in the directory {cwd} </h2> 
+	<Dropdown id="displayOption">
 		<Option on:click={() => {isFile = true; update()}}>Display File Count</Option>
 		<Option on:click={() => {isFile = false; update()}}>Display Byte Count</Option>
 	</Dropdown>
