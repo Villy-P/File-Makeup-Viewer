@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Upcoming
 
+### First Time Contributers
+
+- @NguyenNguyen205 with PR [Fix no file in directory bug](https://github.com/Villy-P/File-Makeup-Viewer/pull/35)
+
 ### Added
 
 - Added `types/ui.ts`
@@ -32,6 +36,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed `CONTRIBUTING.md` having incorrect run command
 - Fixed `CONTRIBUTING.md` having incorrect startup command
 - Fixed `CONTRIBUTING.md` folder structure
+- Fixed bug where graph would still display if there were no files in the directory
 
 ## 1.1.1 - 2024-10-9
 

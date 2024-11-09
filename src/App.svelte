@@ -173,33 +173,33 @@
 			<Option on:click={() => {isFile = true; update()}}>Display File Count</Option>
 			<Option on:click={() => {isFile = false; update()}}>Display Byte Count</Option>
 		</Dropdown>
+		<div style="width: 700px; height: 700px;">
+			<canvas id="myChart" role="img"></canvas>
+		</div>
+		{#if fileOfType}
+			<b class="pb-[3px]">Files with this extension:</b>
+			{#each fileOfType as file}
+				<p style="margin: 0;">{ file }</p>
+			{/each}
+		{/if}
+		<div class="flex justify-center text-gray-500 flex-col pt-[10px]">
+			{#each options as option}
+				<div class="flex items-center h-6">
+					<Checkbox label={option.label} bind:checked={option.checked} onclickcheck={() => update()}/>
+					<Badge>?<Tooltip tooltipContainerClass="w-40">{option.tooltip}</Tooltip></Badge>
+				</div>
+			{/each}
+			<br>
+			<TextArea 
+				textareaclass="h-40" 
+				placeholder="node_modules, build/, etc." 
+				label="Ignore Folders" 
+				id="textarea" 
+				tooltiptext="Each line will ignore a folder with that name. Do not include any slashes -- just use the name itself (like src or lib). Press Update to see changes"
+				bind:value={textareavalue}>
+			</TextArea><br>
+		</div>
+		<!-- svelte-ignore a11y-click-events-have-key-events -->
+		<Button on:click={() => update()}>Update</Button><br><br>
 	{/if}
-	<div style="width: 700px; height: 700px;">
-        <canvas id="myChart" role="img"></canvas>
-    </div>
-	{#if fileOfType}
-		<b class="pb-[3px]">Files with this extension:</b>
-		{#each fileOfType as file}
-			<p style="margin: 0;">{ file }</p>
-		{/each}
-	{/if}
-	<div class="flex justify-center text-gray-500 flex-col pt-[10px]">
-		{#each options as option}
-			<div class="flex items-center h-6">
-				<Checkbox label={option.label} bind:checked={option.checked} onclickcheck={() => update()}/>
-				<Badge>?<Tooltip tooltipContainerClass="w-40">{option.tooltip}</Tooltip></Badge>
-			</div>
-		{/each}
-		<br>
-		<TextArea 
-			textareaclass="h-40" 
-			placeholder="node_modules, build/, etc." 
-			label="Ignore Folders" 
-			id="textarea" 
-			tooltiptext="Each line will ignore a folder with that name. Do not include any slashes -- just use the name itself (like src or lib). Press Update to see changes"
-			bind:value={textareavalue}>
-		</TextArea><br>
-	</div>
-	<!-- svelte-ignore a11y-click-events-have-key-events -->
-	<Button on:click={() => update()}>Update</Button><br><br>
 </main>
