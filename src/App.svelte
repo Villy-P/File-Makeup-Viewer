@@ -27,7 +27,7 @@
 	let textareavalue: string; 		            // The value for UI Element of the text box for ignore folders
 	let isFile: boolean = true;                 // Whether or not the graph shows number of files with extension or size of files
 	let fileOfType: string[];                   // List of files that match the clicked element
-	let areFiles: boolean;
+	let areFiles: boolean = true;
 
 	onMount(() => {
 		// Getting data from the VSCode backend, found in src/extension.ts
@@ -199,7 +199,7 @@
 				bind:value={textareavalue}>
 			</TextArea><br>
 		</div>
-		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<Button on:click={() => update()}>Update</Button><br><br>
 	{/if}
+	<!-- svelte-ignore a11y-click-events-have-key-events -->
+	<Button on:click={() => update()}>Update</Button><br><br>
 </main>

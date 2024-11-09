@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Upcoming
 
+## 1.2.0 - 2024-11-9
+
 ### First Time Contributers
 
 - @NguyenNguyen205 with PR [Fix no file in directory bug](https://github.com/Villy-P/File-Makeup-Viewer/pull/35)
