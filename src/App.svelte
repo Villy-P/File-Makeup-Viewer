@@ -27,7 +27,8 @@
 	let textareavalue: string; 		            // The value for UI Element of the text box for ignore folders
 	let isFile: boolean = true;                 // Whether or not the graph shows number of files with extension or size of files
 	let fileOfType: string[];                   // List of files that match the clicked element
-	
+	let areFiles: boolean;
+
 	onMount(() => {
 		// Getting data from the VSCode backend, found in src/extension.ts
 		window.addEventListener("message", (e) => {
@@ -130,7 +131,10 @@
 
 		readFileAndChildren(directory.children!);
 		const extensionsSort = new Map([...fileData.entries()].sort((a, b) => b[1] - a[1]));
-		
+
+		// Check if files exist
+		areFiles = extensionsSort.size > 0;
+
 		chart.data = {
 			labels: Array.from(extensionsSort.keys()).map(e => JSON.parse(e).name + " File"),
 			datasets: [{
@@ -162,10 +166,14 @@
 
 <main class="flex flex-col justify-center items-start h-full">
 	<h1 class="main-header font-bold py-2">File Makeup for {cwd}</h1>
-	<Dropdown>
-		<Option on:click={() => {isFile = true; update()}}>Display File Count</Option>
-		<Option on:click={() => {isFile = false; update()}}>Display Byte Count</Option>
-	</Dropdown>
+	{#if !areFiles}
+		<h2 id="empty"> No files were found in the directory {cwd} </h2> 
+	{:else}
+		<Dropdown id="displayOption">
+			<Option on:click={() => {isFile = true; update()}}>Display File Count</Option>
+			<Option on:click={() => {isFile = false; update()}}>Display Byte Count</Option>
+		</Dropdown>
+	{/if}
 	<div style="width: 700px; height: 700px;">
         <canvas id="myChart" role="img"></canvas>
     </div>
