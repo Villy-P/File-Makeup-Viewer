@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Upcoming
 
+### Dependencies
+
+- Bumped `svelte` to `5.19.7`
+
 ## 1.2.0 - 2024-11-9
 
 ### First Time Contributers
