@@ -40,7 +40,6 @@
         for (const child of Array.from(listbox.children)) {
             child.addEventListener("click", () => {
                 value = child.innerHTML.replaceAll("<!---->", "");
-                console.log(value);
                 if (!listbox) return;
                 for (const child of Array.from(listbox.children)) {
                     (child as HTMLOptionElement).ariaSelected = "false";
