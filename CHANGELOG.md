@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Update `App` initialization to Svelte 5 using `mount` function
+- Converted all Components into their Svelte 5 counterparts
 
 ### Fixed
 

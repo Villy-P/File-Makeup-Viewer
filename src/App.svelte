@@ -170,8 +170,8 @@
 		<h2 id="empty"> No files were found in the directory {cwd} </h2> 
 	{:else}
 		<Dropdown id="displayOption">
-			<Option on:click={() => {isFile = true; update()}}>Display File Count</Option>
-			<Option on:click={() => {isFile = false; update()}}>Display Byte Count</Option>
+			<Option onclick={() => {isFile = true; update()}}>Display File Count</Option>
+			<Option onclick={() => {isFile = false; update()}}>Display Byte Count</Option>
 		</Dropdown>
 		<div style="width: 700px; height: 700px;">
 			<canvas id="myChart" role="img"></canvas>
