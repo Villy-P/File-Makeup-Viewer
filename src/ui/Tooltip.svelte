@@ -1,11 +1,18 @@
 <script lang="ts">
     import { onMount } from "svelte";
 
-    let tooltip: HTMLDivElement;
+    let tooltip: HTMLDivElement | undefined = $state(undefined);
 
-    export let tooltipContainerClass: string = "";
+    interface Props {
+        tooltipContainerClass?: string;
+        children?: import('svelte').Snippet;
+        [key: string]: any
+    }
+
+    let { tooltipContainerClass = "", children, ...rest }: Props = $props();
 
     onMount(() => {
+        if (!tooltip) return;
         const hoverElement = tooltip.parentElement;
         if (!hoverElement) return;
 
@@ -29,9 +36,9 @@
     });
 </script>
 
-<div class="tooltip" bind:this={tooltip} {...$$restProps}>
+<div class="tooltip" bind:this={tooltip} {...rest}>
     <div class="tooltip-content {tooltipContainerClass}">
-        <slot/>
+        {@render children?.()}
     </div>
 </div>
 

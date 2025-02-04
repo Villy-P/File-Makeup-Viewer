@@ -82,6 +82,6 @@
   "dependencies": {
     "chart.js": "^4.4.4",
     "directory-tree": "^3.5.2",
-    "svelte": "^4.2.19"
+    "svelte": "^5.19.7"
   }
 }

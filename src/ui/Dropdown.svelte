@@ -1,25 +1,46 @@
 <script lang="ts">
+    import { createBubbler } from 'svelte/legacy';
+
+    const bubble = createBubbler();
     import { onMount } from "svelte";
     import type { DropdownPosition } from "../types/ui";
 
-    export let disabled: boolean = false;
-    export let open: boolean = false;
-    export let position: DropdownPosition = "below";
-    export let id: string = "";
 
-    export let value: string = "";
+    interface Props {
+        disabled?: boolean;
+        open?: boolean;
+        position?: DropdownPosition;
+        id?: string;
+        value?: string;
+        indicator?: import('svelte').Snippet;
+        children?: import('svelte').Snippet;
+        [key: string]: any
+    }
 
-    let listbox: HTMLDivElement;
+    let {
+        disabled = false,
+        open = $bindable(false),
+        position = "below",
+        id = "",
+        value = $bindable(""),
+        indicator,
+        children,
+        ...rest
+    }: Props = $props();
+
+    let listbox: HTMLDivElement | undefined = $state(undefined);
 
     onMount(() => {
         // TODO: Refactor
+        if (!listbox) return;
         if (listbox.children.length == 0) return;
-        value = listbox.children[0].children[0].innerHTML;
+        value = listbox.children[0].innerHTML.replaceAll("<!---->", "");
         (listbox.children[0] as HTMLOptionElement).ariaSelected = "true";
         (listbox.children[0] as HTMLOptionElement).selected = true;
         for (const child of Array.from(listbox.children)) {
             child.addEventListener("click", () => {
-                value = child.children[0].innerHTML;
+                value = child.innerHTML.replaceAll("<!---->", "");
+                if (!listbox) return;
                 for (const child of Array.from(listbox.children)) {
                     (child as HTMLOptionElement).ariaSelected = "false";
                     (child as HTMLOptionElement).selected = false;
@@ -31,26 +52,26 @@
     });
 </script>
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-<!-- svelte-ignore a11y-no-static-element-interactions -->
+<!-- svelte-ignore a11y_click_events_have_key_events -->
+<!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
     {id}
     class="dropdown {position}"
     aria-disabled={disabled}
     aria-expanded={open}
     aria-haspopup="listbox"
-    on:click={() => {
+    onclick={() => {
         if (!disabled) open = !open;
     }}
-    on:change
-    on:contextmenu
-    on:input
-    {...$$restProps}
+    onchange={bubble('change')}
+    oncontextmenu={bubble('contextmenu')}
+    oninput={bubble('input')}
+    {...rest}
 >
     <div class="dropdown-control">
         <div class="selected-value">{value}</div>
         <div aria-hidden="true" class="indicator">
-            <slot name="indicator">
+            {#if indicator}{@render indicator()}{:else}
                 <svg
                     class="select-indicator"
                     width="16"
@@ -65,7 +86,7 @@
                         d="M7.976 10.072l4.357-4.357.62.618L8.284 11h-.618L3 6.333l.619-.618 4.357 4.357z"
                     />
                 </svg>
-            </slot>
+            {/if}
         </div>
     </div>
     <div
@@ -74,7 +95,7 @@
         id="listbox-0"
         data-hidden={!open}
     >
-        <slot />
+        {@render children?.()}
     </div>
 </div>
 

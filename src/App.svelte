@@ -16,18 +16,18 @@
 
 	import "./app.css";
 
-	let cwd = "";                               // The current working directory the user is in. Is set on runtime.
+	let cwd = $state("");                               // The current working directory the user is in. Is set on runtime.
 	let directory: Directory;                   // Current Working Directory the user is in represented in class form
 	let fileJSON: FileType[];                   // Data from src/file.json
 	let fileData = new Map<string, number>();   // File data shown in the graph. Key is the JSON value found in fileJSON stringified, 
 	                                            // and the value is the amount of files or size of the files. 
 	
-	let ignore: string[] = [];                  // List of items to ignore, found in the text box within the UI      
-	let chart: Chart<"pie", any[], any>;        // The chart of items that is visualized.
-	let textareavalue: string; 		            // The value for UI Element of the text box for ignore folders
-	let isFile: boolean = true;                 // Whether or not the graph shows number of files with extension or size of files
-	let fileOfType: string[];                   // List of files that match the clicked element
-	let areFiles: boolean = true;
+	let ignore: string[] = [];                                 // List of items to ignore, found in the text box within the UI      
+	let chart: Chart<"pie", any[], any>;        			   // The chart of items that is visualized.
+	let textareavalue: string | undefined = $state(undefined); // The value for UI Element of the text box for ignore folders
+	let isFile: boolean = $state(true);                 	   // Whether or not the graph shows number of files with extension or size of files
+	let fileOfType: string[] = $state([]);                     // List of files that match the clicked element
+	let areFiles: boolean = $state(true);
 
 	onMount(() => {
 		// Getting data from the VSCode backend, found in src/extension.ts
@@ -126,6 +126,7 @@
 
 	// Updates the graph with data
 	function update() {
+		if (!textareavalue) textareavalue = "";
 		ignore = textareavalue.split("\n");
 		fileData.clear();
 
@@ -147,7 +148,7 @@
 		chart.update();
 	}
 
-	const options: OptionCheckBox[] = [
+	const options: OptionCheckBox[] = $state([
 		{
 			label: "Show Hidden Directories",
 			tooltip: "When unchecked, the chart will not include files located in hidden directories (those that start with '.')",
@@ -161,7 +162,7 @@
 			tooltip: "When checked, the chart will not include files that are not direct language files (like .js, .cpp, .java, etc)",
 			checked: false
 		}
-	];
+	]);
 </script>
 
 <main class="flex flex-col justify-center items-start h-full">
@@ -170,8 +171,8 @@
 		<h2 id="empty"> No files were found in the directory {cwd} </h2> 
 	{:else}
 		<Dropdown id="displayOption">
-			<Option on:click={() => {isFile = true; update()}}>Display File Count</Option>
-			<Option on:click={() => {isFile = false; update()}}>Display Byte Count</Option>
+			<Option onclick={() => {isFile = true; update()}}>Display File Count</Option>
+			<Option onclick={() => {isFile = false; update()}}>Display Byte Count</Option>
 		</Dropdown>
 		<div style="width: 700px; height: 700px;">
 			<canvas id="myChart" role="img"></canvas>
@@ -200,6 +201,6 @@
 			</TextArea><br>
 		</div>
 	{/if}
-	<!-- svelte-ignore a11y-click-events-have-key-events -->
+	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<Button on:click={() => update()}>Update</Button><br><br>
 </main>

@@ -1,25 +1,49 @@
 <script lang="ts">
+    import { createBubbler } from 'svelte/legacy';
+
+    const bubble = createBubbler();
     import type { TextAreaResize } from "../types/ui";
 	import Tooltip from "./Tooltip.svelte";
 
-    export let label: string;
-    export let autofocus: boolean = false;
-    export let cols: number = 20;
-    export let disabled: boolean = false;
-    export let form: string | undefined = undefined;
-    export let maxlength: number | undefined = undefined;
-    export let name: string | undefined = undefined;
-    export let placeholder: string | undefined = undefined;
-    export let readonly: boolean = false;
-    export let resize: TextAreaResize = "none";
-    export let rows: number | undefined = undefined;
-    export let value: string = "";
 
-    export let textareaclass: string = "";
-    export let tooltiptext: string = "";
+    interface Props {
+        label: string;
+        autofocus?: boolean;
+        cols?: number;
+        disabled?: boolean;
+        form?: string | undefined;
+        maxlength?: number | undefined;
+        name?: string | undefined;
+        placeholder?: string | undefined;
+        readonly?: boolean;
+        resize?: TextAreaResize;
+        rows?: number | undefined;
+        value?: string;
+        textareaclass?: string;
+        tooltiptext?: string;
+        [key: string]: any
+    }
+
+    let {
+        label,
+        autofocus = false,
+        cols = 20,
+        disabled = false,
+        form = undefined,
+        maxlength = undefined,
+        name = undefined,
+        placeholder = undefined,
+        readonly = false,
+        resize = "none",
+        rows = undefined,
+        value = $bindable(""),
+        textareaclass = "",
+        tooltiptext = "",
+        ...rest
+    }: Props = $props();
 </script>
 
-<div class="textarea" aria-label={label} class:disabled class:readonly data-resize={resize} {...$$restProps}>
+<div class="textarea" aria-label={label} class:disabled class:readonly data-resize={resize} {...rest}>
     {#if label.length > 0}
         <label for="textarea-control" class="textarea-label">
             {label}
@@ -28,25 +52,25 @@
             {/if}
         </label>
     {/if}
-    <!-- svelte-ignore a11y-autofocus -->
+    <!-- svelte-ignore a11y_autofocus -->
     <textarea
         class="textarea-control {textareaclass}"
         id="textarea-control"
         aria-label={label}
         bind:value
-        on:change
-        on:click
-        on:contextmenu
-        on:focus
-        on:input
-        on:keydown
-        on:keypress
-        on:keyup
-        on:mouseenter
-        on:mouseleave
-        on:mouseover
-        on:paste
-        on:select
+        onchange={bubble('change')}
+        onclick={bubble('click')}
+        oncontextmenu={bubble('contextmenu')}
+        onfocus={bubble('focus')}
+        oninput={bubble('input')}
+        onkeydown={bubble('keydown')}
+        onkeypress={bubble('keypress')}
+        onkeyup={bubble('keyup')}
+        onmouseenter={bubble('mouseenter')}
+        onmouseleave={bubble('mouseleave')}
+        onmouseover={bubble('mouseover')}
+        onpaste={bubble('paste')}
+        onselect={bubble('select')}
         {autofocus}
         {cols}
         {disabled}
@@ -57,7 +81,7 @@
         {readonly}
         {rows}
         style="resize: {resize};"
-    />
+    ></textarea>
 </div>
 
 <style>

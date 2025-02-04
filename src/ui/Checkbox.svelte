@@ -1,16 +1,33 @@
 <script lang="ts">
-    export let label: string | undefined = undefined;
+    import { createBubbler } from 'svelte/legacy';
 
-    export let checked: boolean = false;
-    export let required: boolean = false;
-    export let disabled: boolean = false;
-    export let readonly: boolean = false;
+    const bubble = createBubbler();
 
-    export let indeterminate: boolean = false;
-    export let onclickcheck: () => void;
+
+    interface Props {
+        label?: string | undefined;
+        checked?: boolean;
+        required?: boolean;
+        disabled?: boolean;
+        readonly?: boolean;
+        indeterminate?: boolean;
+        onclickcheck: () => void;
+        [key: string]: any
+    }
+
+    let {
+        label = undefined,
+        checked = $bindable(false),
+        required = false,
+        disabled = false,
+        readonly = false,
+        indeterminate = $bindable(false),
+        onclickcheck,
+        ...rest
+    }: Props = $props();
 </script>
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y_click_events_have_key_events -->
 <div
     class="checkbox"
     class:disabled
@@ -23,23 +40,23 @@
     aria-disabled={disabled}
     tabindex="0"
     aria-label={label}
-    on:click={() => {
+    onclick={() => {
         if (!disabled && !readonly) {
             indeterminate = false;
             checked = !checked;
             onclickcheck();
         }
     }}
-    on:keyup
-    on:keydown
-    on:keypress
-    on:focus
-    on:blur
-    on:mouseover
-    on:mouseenter
-    on:mouseleave
-    on:paste
-    {...$$restProps}
+    onkeyup={bubble('keyup')}
+    onkeydown={bubble('keydown')}
+    onkeypress={bubble('keypress')}
+    onfocus={bubble('focus')}
+    onblur={bubble('blur')}
+    onmouseover={bubble('mouseover')}
+    onmouseenter={bubble('mouseenter')}
+    onmouseleave={bubble('mouseleave')}
+    onpaste={bubble('paste')}
+    {...rest}
 >
     <div class="check-control">
         {#if indeterminate}
@@ -61,7 +78,7 @@
             </svg>
         {/if}
     </div>
-    <!-- svelte-ignore a11y-label-has-associated-control -->
+    <!-- svelte-ignore a11y_label_has_associated_control -->
     {#if label}
         <label class="check-label">{label}</label>
     {/if}

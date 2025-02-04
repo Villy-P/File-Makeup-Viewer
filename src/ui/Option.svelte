@@ -1,10 +1,25 @@
 <script lang="ts">
-    export let disabled: boolean = false;
-    export let selected: boolean = false;
-    export let value: string = "";
+    import { createBubbler } from 'svelte/legacy';
+
+    const bubble = createBubbler();
+    interface Props {
+        disabled?: boolean;
+        selected?: boolean;
+        value?: string;
+        children?: import('svelte').Snippet;
+        [key: string]: any
+    }
+
+    let {
+        disabled = false,
+        selected = false,
+        value = "",
+        children,
+        ...rest
+    }: Props = $props();
 </script>
 
-<!-- svelte-ignore a11y-no-redundant-roles -->
+<!-- svelte-ignore a11y_no_redundant_roles -->
 <option
     aria-selected={selected}
     {disabled}
@@ -13,12 +28,10 @@
     aria-disabled={disabled}
     role="option"
     class="option"
-    on:click
-    {...$$restProps}
+    onclick={bubble('click')}
+    {...rest}
 >
-    <span class="option-content">
-        <slot />
-    </span>
+    {@render children?.()}
 </option>
 
 <style>

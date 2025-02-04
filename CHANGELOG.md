@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Upcoming
 
+### Added
+
+- Added `app` id tag to `body` element
+
+### Changed
+
+- Update `App` initialization to Svelte 5 using `mount` function
+- Converted all Components into their Svelte 5 counterparts
+
+### Fixed
+
+- Correct textarea closing tag in `TextArea.svelte`
+- Correct option tag in `Option.svelte`
+
+### Dependencies
+
+- Bumped `svelte` to `5.19.7`
+
 ## 1.2.0 - 2024-11-9
 
 ### First Time Contributers
