@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Added `app` id tag to `body` element
 
+### Changed
+
+- Update `App` initialization to Svelte 5 using `mount` function
+
 ### Dependencies
 
 - Bumped `svelte` to `5.19.7`
