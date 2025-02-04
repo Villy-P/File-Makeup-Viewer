@@ -1,4 +1,7 @@
 <script lang="ts">
+    type formenctype = "application/x-www-form-urlencoded" | "multipart/form-data" | "text/plain" | null | undefined;
+    type formmethodtype = "dialog" | "get" | "post" | "DIALOG" | "GET" | "POST" | null | undefined;
+
     import type { ButtonAppearance, ButtonType } from "../types/ui";
 
     export let appearance: ButtonAppearance = "primary";
@@ -10,8 +13,8 @@
 
     export let form: string | undefined = undefined;
     export let formaction: string | undefined = undefined;
-    export let formenctype: string | undefined = undefined;
-    export let formmethod: string | undefined = undefined;
+    export let formenctype: formenctype = undefined;
+    export let formmethod: formmethodtype = undefined;
     export let formnovalidate: boolean | undefined = undefined;
     export let formtarget: string | undefined = undefined;
     export let name: string | undefined = undefined;
