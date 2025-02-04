@@ -16,9 +16,7 @@
     on:click
     {...$$restProps}
 >
-    <span class="option-content">
-        <slot />
-    </span>
+    <slot/>
 </option>
 
 <style>

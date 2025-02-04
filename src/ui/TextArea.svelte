@@ -57,7 +57,7 @@
         {readonly}
         {rows}
         style="resize: {resize};"
-    />
+    ></textarea>
 </div>
 
 <style>
