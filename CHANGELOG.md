@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Upcoming
 
+- Added custom icon to the webview panel tab
+
 ### Added
 
 - Added `app` id tag to `body` element
