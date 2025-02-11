@@ -35,8 +35,8 @@
         placeholder = undefined,
         readonly = false,
         resize = "none",
-        rows = undefined,
-        value = $bindable(""),
+        rows = 10,
+        value = $bindable(),
         textareaclass = "",
         tooltiptext = "",
         ...rest
@@ -57,7 +57,6 @@
         class="textarea-control {textareaclass}"
         id="textarea-control"
         aria-label={label}
-        bind:value
         onchange={bubble('change')}
         onclick={bubble('click')}
         oncontextmenu={bubble('contextmenu')}
@@ -81,6 +80,7 @@
         {readonly}
         {rows}
         style="resize: {resize};"
+        bind:value={value}
     ></textarea>
 </div>
 
