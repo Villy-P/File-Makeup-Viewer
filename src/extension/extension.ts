@@ -1,6 +1,6 @@
 import { commands, ExtensionContext } from "vscode";
 import { SveltePanel } from "./panel";
-import * as vscode from 'vscode'
+import * as vscode from 'vscode';
 import path from 'path';
 import fs from 'fs';
 import dirTree from 'directory-tree'
@@ -19,6 +19,9 @@ function setupExtension(context: ExtensionContext) {
 export function activate(context: ExtensionContext) {
     const showHelloWorldCommand = commands.registerCommand("file-makeup-viewer.show-makeup", () => {
 		SveltePanel.render('showPanel', 'File Makeup', context.extensionUri);
+		if (SveltePanel.currentPanel) {
+            SveltePanel.currentPanel.panel.iconPath = vscode.Uri.joinPath(context.extensionUri, 'assets', 'pie-chart-683.png');
+        }
 		SveltePanel.currentPanel?.panel.onDidChangeViewState(e => {
 			setupExtension(context);
 		}, null, context.subscriptions)
