@@ -64,10 +64,10 @@
     "@vscode/webview-ui-toolkit": "^1.4.0",
     "autoprefixer": "^10.4.20",
     "bytes": "^3.1.2",
-    "eslint": "^9.12.0",
-    "glob": "^11.0.0",
+    "eslint": "^9.39.4",
+    "glob": "^11.1.0",
     "path": "^0.12.7",
-    "postcss": "^8.4.47",
+    "postcss": "^8.5.14",
     "prettier": "^3.3.3",
     "rollup-plugin-livereload": "^2.0.5",
     "rollup-plugin-polyfill-node": "^0.13.0",
@@ -82,6 +82,6 @@
   "dependencies": {
     "chart.js": "^4.4.4",
     "directory-tree": "^3.5.2",
-    "svelte": "^5.19.7"
+    "svelte": "^5.55.5"
   }
 }
